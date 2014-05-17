@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <script type="text/javascript" src="bower_components/requirejs/require.js"></script>
+    <script>
+      require.config({
+        baseUrl: './',
+        paths: {
+          Backbone    : 'bower_components/backbone/backbone',
+          Marionette  : 'bower_components/marionette/lib/backbone.marionette',
+          jquery      : 'bower_components/jquery/dist/jquery',
+          underscore  : 'bower_components/underscore/underscore',
+          handlebars  : 'bower_components/handlebars/handlebars',
+          hbs         : 'bower_components/require-handlebars-plugin/hbs'
+        },
+        shim: {
+            underscore: {
+                exports: '_'
+            },
+            handlebars: {
+              exports: 'Handlebars'
+            },
+            backbone: {
+                deps: ['jquery', 'underscore'],
+                exports: 'Backbone'
+            },
+            Marionette: {
+              deps: ['Backbone'],
+              export: 'Marionette'
+            }
+        }
+      });
+    </script>
+    <script>
+      //load up dat app
+      require(['js/app'], function(app){
+        app.Start();
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

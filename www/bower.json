@@ -1,0 +1,15 @@
+{
+  "name"          : "BoardGameGeek",
+  "version"       : "0.1.0",
+  "authors"       : ["Keenan Jaenicke", "Shawn Hoffman"],
+  "dependencies"  : {
+    "requirejs"       : "latest",
+    "requirejs-text"  : "latest",
+    "backbone"        : "latest",
+    "marionette"      : "latest",
+    "jquery"          : "latest",
+    "underscore"      : "latest",
+    "handlebars"      : "1.3.0",
+    "require-handlebars-plugin" : "0.8.0"
+  }
+}
