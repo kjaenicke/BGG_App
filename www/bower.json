@@ -10,6 +10,7 @@
     "jquery"          : "latest",
     "underscore"      : "latest",
     "handlebars"      : "1.3.0",
-    "require-handlebars-plugin" : "0.8.0"
+    "require-handlebars-plugin" : "0.8.0",
+    "framework7"      : "latest"
   }
 }

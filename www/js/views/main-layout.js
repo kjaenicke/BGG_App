@@ -13,6 +13,8 @@ define(['Backbone', 'Marionette', 'hbs!templates/main-layout', 'js/views/gameCol
         search: '.search'
       },
       doSearch: function(){
+        theApp.showIndicator();
+
         var self = this;
         var s = $('#search_text').val();
         if(s.length > 0){
@@ -22,6 +24,8 @@ define(['Backbone', 'Marionette', 'hbs!templates/main-layout', 'js/views/gameCol
               gameCollectionView = new GameCollectionView({ collection: gameCollection });
               gameCollectionView.render();
               $('.search-results').html(gameCollectionView.el);
+
+              theApp.hideIndicator();
             }
           });
         }
