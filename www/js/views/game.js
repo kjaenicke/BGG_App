@@ -2,7 +2,7 @@ define(['Backbone', 'Marionette', 'hbs!templates/game-simple', 'hbs!templates/ga
   function(Backbone, Marionette, template, detailsTemplate, GameModel){
 
   var GameView = Backbone.Marionette.ItemView.extend({
-      tagname: 'div',
+      tagName: 'li',
       ui: {
         gameTitle: '.game-title'
       },
