@@ -1,5 +1,5 @@
-define(['Backbone', 'Marionette', 'js/views/main-layout'],
-  function(Backbone, Marionette, MainLayout){
+define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layout'],
+  function(Backbone, Marionette, MainLayout, SearchLayout){
 
   var app = {
     Start: function(){
@@ -44,10 +44,15 @@ define(['Backbone', 'Marionette', 'js/views/main-layout'],
       //   theApp.alert('Here comes Search page');
       // });
 
+      //create main layout
       var layout = new MainLayout();
       layout.render();
+      //$('.page-content').append(layout.el);
 
-      $('.page-content').append(layout.el);
+      //create search layout
+      var searchLayout = new SearchLayout();
+      searchLayout.render();
+      $('.page-content .search_container').append(layout.el);
     }
   };
 

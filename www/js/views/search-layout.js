@@ -4,13 +4,26 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
     var SearchLayout = Backbone.Marionette.Layout.extend({
       template: Template(),
       ui: {
-        searchButton: '#search_button'
+        searchText: '#search_text'
       },
       events: {
-        'click @ui.searchButton': 'doSearch'
+         "keyup @ui.searchText" : "keyPressEventHandler"
       },
       regions: {
         search: '.search'
+      },
+      keyPressEventHandler: function(event){
+        if(event.keyCode == 13){
+          this.doSearch();
+        }
+      },
+      onRender: function(){
+        var self = this;
+        $(document).on('keyup', '#search_text', function(event){
+          if(event.keyCode == 13){
+            self.doSearch();
+          }
+        });
       },
       doSearch: function(){
         theApp.showIndicator();
