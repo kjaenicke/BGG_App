@@ -3,33 +3,33 @@ define(['Backbone', 'Marionette', 'hbs!templates/main-layout', 'js/views/gameCol
 
     var MainLayout = Backbone.Marionette.Layout.extend({
       template: Template(),
-      ui: {
-        searchButton: '#search_button'
-      },
-      events: {
-        'click @ui.searchButton': 'doSearch'
-      },
-      regions: {
-        search: '.search'
-      },
-      doSearch: function(){
-        theApp.showIndicator();
-
-        var self = this;
-        var s = $('#search_text').val();
-        if(s.length > 0){
-          var gameCollection = new GameCollection([], { searchTerms: s });
-          gameCollection.fetch({
-            success: function(){
-              gameCollectionView = new GameCollectionView({ collection: gameCollection });
-              gameCollectionView.render();
-              $('.search-results').html(gameCollectionView.el);
-
-              theApp.hideIndicator();
-            }
-          });
-        }
-      }
+      // ui: {
+      //   searchButton: '#search_button'
+      // },
+      // events: {
+      //   'click @ui.searchButton': 'doSearch'
+      // },
+      // regions: {
+      //   search: '.search'
+      // },
+      // doSearch: function(){
+      //   theApp.showIndicator();
+      //
+      //   var self = this;
+      //   var s = $('#search_text').val();
+      //   if(s.length > 0){
+      //     var gameCollection = new GameCollection([], { searchTerms: s });
+      //     gameCollection.fetch({
+      //       success: function(){
+      //         gameCollectionView = new GameCollectionView({ collection: gameCollection });
+      //         gameCollectionView.render();
+      //         $('.search-results').html(gameCollectionView.el);
+      //
+      //         theApp.hideIndicator();
+      //       }
+      //     });
+      //   }
+      // }
     });
 
     return MainLayout;

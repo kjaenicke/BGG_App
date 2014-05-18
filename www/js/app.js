@@ -40,6 +40,10 @@ define(['Backbone', 'Marionette', 'js/views/main-layout'],
         theApp.alert('Here comes About page');
       });
 
+      // $$(document).on('pageInit', '.page[data-page="search"]', function (e) {
+      //   theApp.alert('Here comes Search page');
+      // });
+
       var layout = new MainLayout();
       layout.render();
 

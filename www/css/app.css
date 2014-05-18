@@ -1,8 +1,4 @@
-.page-content > div {
-  text-align: center;
-}
-
-.page-content #search_button {
-  width: 25px;
-  display: inline;
+.list-block.search-box {
+  margin-top: 0px;
+  margin-bottom: 15px;
 }
