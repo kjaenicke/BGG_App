@@ -22,10 +22,10 @@ define(['Backbone', 'js/models/game'],
           this.url = this.baseUrl + '"' + this.searchTerms + '"';
         }
         if(this.get('limit')){
-          this.url += '&limit=' + this.limit;
+          this.url += '&limit=' + this.get('limit');
         }
         if(this.get('filter')){
-          this.url += '&filter=' + '"' + this.filter + '"';
+          this.url += '&filter=' + '"' + this.get('filter') + '"';
         }
 
         Backbone.Collection.prototype.fetch.call(this, options);
