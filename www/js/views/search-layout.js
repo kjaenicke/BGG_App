@@ -36,6 +36,7 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
             success: function(){
               gameCollectionView = new GameCollectionView({ collection: gameCollection });
               gameCollectionView.render();
+              $('.search-results-title').html('Search results for &quot;' + s + '&quot;');
               $('.search-results').html(gameCollectionView.el);
 
               theApp.hideIndicator();

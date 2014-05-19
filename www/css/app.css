@@ -1,4 +1,28 @@
 .list-block.search-box {
   margin-top: 0px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+.content-block-title.search-results-title{
+  margin-top: 10px;
+}
+
+.fa-rpgitem:before{
+  content: "\f183";
+  color: #720076;
+}
+
+.fa-boardgame:before{
+  content: "\f091";
+  color: #267bd8;
+}
+
+.fa-videogame:before{
+  content: "\f11b";
+  color: #b20101;
+}
+
+.fa-boardgameexpansion:before{
+  content: "\f1e0";
+  color: #3ba501;
 }

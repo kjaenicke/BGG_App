@@ -88,10 +88,16 @@ require.config({
 <script type="text/javascript" src="bower_components/framework7/dist/js/framework7.min.js"></script>
 <!-- Path to your app js-->
 <script>
-//load up dat app
-require(['js/app'], function(app){
-  app.Start();
-});
+  //load up dat app
+  require(['js/app'], function(app){
+    app.Start();
+  });
+  document.onkeyup=function(e) {
+    if(e.which == 13){
+      $('#search_text').blur();
+      return false;
+    }
+  };
 </script>
 </body>
 </html>
