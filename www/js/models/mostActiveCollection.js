@@ -14,11 +14,11 @@ define(['Backbone'],
         }
       },
       fetch: function(options){
-        if(this.get('type')){
-          this.url = this.baseUrl + '"' + this.get('type') + '"';
+        if(this.type){
+          this.url = this.baseUrl + '"' + this.type + '"';
         }
-        if(this.get('limit')){
-          this.url += '&limit=' + this.get('limit');
+        if(this.limit){
+          this.url += '&limit=' + this.limit;
         }
 
         Backbone.Collection.prototype.fetch.call(this, options);
