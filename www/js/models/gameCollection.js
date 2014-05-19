@@ -6,13 +6,29 @@ define(['Backbone', 'js/models/game'],
       // model: GameModel,
       baseUrl: 'http://powerful-cove-3241.herokuapp.com/search?searchTerms=',
       initialize: function(models, options){
-        this.searchTerms = options.searchTerms;
+        //grab parameters for game collection
+        if(options.searchTerms){
+          this.searchTerms = options.searchTerms;
+        }
+        if(options.limit){
+          this.limit = options.limit;
+        }
+        if(options.filter){
+          this.filter = options.filter;
+        }
       },
       fetch: function(options){
         if(this.searchTerms){
           this.url = this.baseUrl + '"' + this.searchTerms + '"';
-          Backbone.Collection.prototype.fetch.call(this, options);
         }
+        if(this.get('limit')){
+          this.url += '&limit=' + this.limit;
+        }
+        if(this.get('filter')){
+          this.url += '&filter=' + '"' + this.filter + '"';
+        }
+
+        Backbone.Collection.prototype.fetch.call(this, options);
       }
     });
 
