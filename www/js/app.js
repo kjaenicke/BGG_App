@@ -38,7 +38,7 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
           for(var i = 0; i < recentItems.length; i++){
             itemsHTML += '<li><a href="#" class="item-link item-content">';
             itemsHTML +=  '<div class="item-media"><i class="fa fa-boardgame fa-fw fa-lg"></i></div>';
-            itemsHTML +=  '<div class="item-inner">'
+            itemsHTML +=  '<div class="item-inner">';
             itemsHTML +=  '<div class="item-title">' + recentItems[i] + '</div>';
             itemsHTML +=  '</div></a></li>';
           }
@@ -63,11 +63,11 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
 
       showNewIndicator = function () {
           $('body').append('<div class="preloader-indicator-overlay"></div><div class="preloader-indicator-modal" style="padding: 15px;"><i class="fa fa-refresh fa-spin fa-inverse fa-3x"></i></div>');
-      }
+      };
 
       hideNewIndicator = function () {
           $('.preloader-indicator-overlay, .preloader-indicator-modal').remove();
-      }
+      };
     }
   };
 
