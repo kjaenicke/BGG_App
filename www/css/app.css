@@ -26,3 +26,12 @@
   content: "\f1e0";
   color: #3ba501;
 }
+
+.panel {
+  background-color: #007aff;
+  /*color: white;*/
+}
+
+.panel .content-block-title, .panel p {
+  color: white;
+}
