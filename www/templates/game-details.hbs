@@ -1,9 +1,14 @@
 <div class="page-content">
   <div class="content-block">
-      <img style="text-align:center" src="{{ thumbURL }}" />
-      <h4>Year Published: {{ yearPublished }}</h4>
-      <h4>Playing Time: {{ playingTime }}</h4>
-      <h4>Recommended Age: {{ minAge }}+</h4>
+    <div class="row">
+      <img style="" src="{{ thumbURL }}" class="col-33" />
+      <div class="col-66">
+        <h1>{{ title }}</h1>
+        <h4>Year Published: {{ yearPublished }}</h4>
+        <h4>Playing Time: {{ playingTime }}</h4>
+        <h4>Recommended Age: {{ minAge }}+</h4>
+      </div>
+    </div>
       <br/>
       <h3>Description</h3><hr/>
       <p> {{ description }}</p>
