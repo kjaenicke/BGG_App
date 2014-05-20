@@ -26,7 +26,7 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
         });
       },
       doSearch: function(){
-        theApp.showIndicator();
+        showNewIndicator();
 
         var self = this;
         var s = $('#search_text').val();
@@ -45,7 +45,7 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
               $('.search-results-title').html('Results for &quot;' + s + '&quot;');
               $('.search-results').html(gameCollectionView.el);
 
-              theApp.hideIndicator();
+              hideNewIndicator();
             }
           });
         }
