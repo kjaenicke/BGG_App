@@ -1,14 +1,14 @@
 {
   "name"          : "BoardGameGeek",
   "version"       : "0.1.0",
-  "authors"       : ["Keenan Jaenicke", "Shawn Hoffman"],
+  "contributors"  : ["Keenan Jaenicke", "Shawn Hoffman"],
+  "scripts": {
+    "test": "grunt --verbose"
+  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-cli": "0.1.9",
     "grunt-contrib-jshint": "0.6.3"
-  },
-  "scripts": {
-    "test": "grunt --verbose"
   }
-  "dependencies": {}
 }
