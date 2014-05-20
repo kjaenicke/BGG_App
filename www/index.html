@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <html>
-<head>
+<head  class="with-statusbar-overlay">
 <script type="text/javascript" src="bower_components/requirejs/require.js"></script>
 <script>
 require.config({
@@ -33,9 +33,10 @@ require.config({
 </script>
 <!-- Required meta tags-->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <!-- Your app title -->
 <title>BGG</title>
 <!-- Path to Framework7 Library CSS-->
@@ -60,7 +61,7 @@ require.config({
   <!-- Views -->
   <div class="views">
     <!-- Your main view, should have "view-main" class -->
-    <div class="view view-main">
+    <div class="view view-main navbar-fixed">
       <!-- Top Navbar-->
       <div class="navbar">
         <div class="navbar-inner">
@@ -73,8 +74,7 @@ require.config({
           </div>
         </div>
       </div>
-      <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-      <div class="pages navbar-through toolbar-through">
+      <div class="pages">
         <!-- Page, "data-page" contains page name -->
         <div data-page="index" class="page">
           <!-- Scrollable page content -->
