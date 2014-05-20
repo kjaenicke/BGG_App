@@ -30,7 +30,24 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
       });
 
       // Option 2. Using live 'pageInit' event handlers for each page
-      $$(document).on('pageInit', '.page[data-page="game"]', function (e) {
+      $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
+        var recentList = $('.recent-searches .content-block ul');
+        var itemsHTML = '';
+        var recentItems = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
+        if (recentItems.length > 0){
+          for(var i = 0; i < recentItems.length; i++){
+            itemsHTML += '<li><a href="#" class="item-link item-content">';
+            itemsHTML +=  '<div class="item-media"><i class="fa fa-boardgame fa-fw fa-lg"></i></div>';
+            itemsHTML +=  '<div class="item-inner">'
+            itemsHTML +=  '<div class="item-title">' + recentItems[i] + '</div>';
+            itemsHTML +=  '</div></a></li>';
+          }
+
+          $(recentList).html(itemsHTML);
+        }
+        else{
+          $(recentList).html('<span>No search history found.</span>');
+        }
       });
 
       //create main layout
