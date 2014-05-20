@@ -15,34 +15,26 @@ define(['Backbone', 'Marionette', 'hbs!templates/game-simple', 'hbs!templates/ga
       },
       showDetails: function(){
         var self = this;
+        //page load has to be here or it won't render correctly
+        theApp.views[0].loadPage("game.html");
+
         // see if we've already fetch the deets on this Bee before we refetch it and waste time
         if(!self.gameModel){
+          theApp.showIndicator();
           self.gameModel = new GameModel({ id: self.model.get('id'), details: true });
             self.gameModel.fetch({ success: function(){
               //create html for details view
               var gameTemplate = detailsTemplate(self.gameModel.toJSON());
-
-              //add to body each time because it gets destroyed when closed :/
-              $('body').append(gameTemplate);
-              var gamePopup = $('body').find('popup');
-
-              if(gamePopup.length>0) {
-                theApp.popup(gamePopup);
-              }
+              $('.game-page').html(gameTemplate);
+              theApp.hideIndicator();
             }
           });
         }
         else {
-          //create html for details view
-          var gameTemplate = detailsTemplate(self.gameModel.toJSON());
-
-            //add to body each time because it gets destroyed when closed :/
-            $('body').append(gameTemplate);
-            var gamePopup = $('body').find('popup');
-
-            if(gamePopup.length>0) {
-              theApp.popup(gamePopup);
-            }
+            //create html for details view
+            var gameTemplate = detailsTemplate(self.gameModel.toJSON());
+            theApp.views[0].loadPage("game.html");
+            $('.game-page').html(gameTemplate);
           }
         }
     });

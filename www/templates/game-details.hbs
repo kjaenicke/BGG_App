@@ -1,23 +1,11 @@
-<div class="popup modal-in" style="display: block;">
-  <div class="view navbar-fixed">
-    <div class="page">
-      <div class="navbar">
-          <div class="navbar-inner">
-            <div class="center" style="left: 107.5px;">{{ title }}</div>
-            <div class="right"><a href="#" class="link close-popup">Done</a></div>
-          </div>
-        </div>
-        <div class="page-content">
-          <div class="content-block">
-              <img style="text-align:center" src="{{ thumbURL }}" />
-              <h4>Year Published: {{ yearPublished }}</h4>
-              <h4>Playing Time: {{ playingTime }}</h4>
-              <h4>Recommended Age: {{ minAge }}+</h4>
-              <br/>
-              <h3>Description</h3><hr/>
-              <p> {{ description }}</p>
-          </div>
-      </div>
-    </div>
+<div class="page-content">
+  <div class="content-block">
+      <img style="text-align:center" src="{{ thumbURL }}" />
+      <h4>Year Published: {{ yearPublished }}</h4>
+      <h4>Playing Time: {{ playingTime }}</h4>
+      <h4>Recommended Age: {{ minAge }}+</h4>
+      <br/>
+      <h3>Description</h3><hr/>
+      <p> {{ description }}</p>
   </div>
 </div>
