@@ -31,7 +31,7 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
 
       // Option 2. Using live 'pageInit' event handlers for each page
       $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
-        var recentList = $('.recent-searches .content-block ul');
+        var recentList = $('.recent-searches .list-block ul');
         var itemsHTML = '';
         var recentItems = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
         if (recentItems.length > 0){
@@ -46,7 +46,7 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
           $(recentList).html(itemsHTML);
         }
         else{
-          $(recentList).html('<span>No search history found.</span>');
+          $(recentList).html('<li class="item-content"><div class="item-media"><i class="fa fa-star fa-spin fa-fw fa-lg"></i></div><div class="item-inner"><div class="item-title">No searches found.</div></div></li>');
         }
       });
 
