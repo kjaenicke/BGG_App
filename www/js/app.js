@@ -34,7 +34,7 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
         var recentList = $('.recent-searches .list-block ul');
         var itemsHTML = '';
         var recentItems = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
-        var uniqueSearches = []
+        var uniqueSearches = [];
         $.each(recentItems, function(i, el){
             if($.inArray(el, uniqueSearches) === -1) uniqueSearches.push(el);
         });
