@@ -33,9 +33,11 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
         if(s.length > 0){
           //save search terms
           var recentSearches = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
-          recentSearches = [s].concat(recentSearches);
-          //limit the history to the last 25
-          window.localStorage.recentSearches = JSON.stringify(recentSearches.slice(0, 25));
+          if($.inArray(s, recentSearches) == -1){
+            recentSearches = [s].concat(recentSearches);
+            //limit the history to the last 25
+            window.localStorage.recentSearches = JSON.stringify(recentSearches.slice(0, 25));
+          }
 
           var gameCollection = new GameCollection([], { searchTerms: s });
           gameCollection.fetch({

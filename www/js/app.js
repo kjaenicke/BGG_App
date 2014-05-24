@@ -34,12 +34,16 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
         var recentList = $('.recent-searches .list-block ul');
         var itemsHTML = '';
         var recentItems = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
-        if (recentItems.length > 0){
-          for(var i = 0; i < recentItems.length; i++){
-            itemsHTML += '<li><a href="#" class="item-link item-content">';
+        var uniqueSearches = []
+        $.each(recentItems, function(i, el){
+            if($.inArray(el, uniqueSearches) === -1) uniqueSearches.push(el);
+        });
+        if (uniqueSearches.length > 0){
+          for(var i = 0; i < uniqueSearches.length; i++){
+            itemsHTML += '<li class=""><a href="#" class="item-link item-content">';
             itemsHTML +=  '<div class="item-media"><i class="fa fa-boardgame fa-fw fa-lg"></i></div>';
             itemsHTML +=  '<div class="item-inner">';
-            itemsHTML +=  '<div class="item-title">' + recentItems[i] + '</div>';
+            itemsHTML +=  '<div class="item-title">' + uniqueSearches[i] + '</div>';
             itemsHTML +=  '</div></a></li>';
           }
 
