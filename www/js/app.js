@@ -40,8 +40,8 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
         });
         if (uniqueSearches.length > 0){
           for(var i = 0; i < uniqueSearches.length; i++){
-            itemsHTML += '<li class=""><a href="#" class="item-link item-content">';
-            itemsHTML +=  '<div class="item-media"><i class="fa fa-boardgame fa-fw fa-lg"></i></div>';
+            itemsHTML += '<li class="recent-search"><a href="#" class="item-link item-content">';
+            itemsHTML +=  '<div class="item-media"><i class="fa fa-clock-o fa-fw fa-lg"></i></div>';
             itemsHTML +=  '<div class="item-inner">';
             itemsHTML +=  '<div class="item-title">' + uniqueSearches[i] + '</div>';
             itemsHTML +=  '</div></a></li>';
@@ -53,7 +53,7 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
           $(recentList).html('<li class="item-content"><div class="item-media"><i class="fa fa-star fa-spin fa-fw fa-lg"></i></div><div class="item-inner"><div class="item-title">No searches found.</div></div></li>');
         }
       });
-
+      
       //create main layout
       var layout = new MainLayout();
       layout.render();
