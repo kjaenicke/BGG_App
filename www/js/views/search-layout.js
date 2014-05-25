@@ -10,7 +10,7 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
          "keyup @ui.searchText" : "keyPressEventHandler"
       },
       regions: {
-        search: '.search'
+        search: '#search_text'
       },
       keyPressEventHandler: function(event){
         if(event.keyCode == 13){
@@ -24,12 +24,25 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
             self.doSearch();
           }
         });
+
+        $(window).on('storage', function(e){
+          self.getTitleFromLocalStorage();
+        });
       },
-      doSearch: function(){
+      getTitleFromLocalStorage: function(){
+        if(window.localStorage.searchTitle){
+          //get recent search item from localStorage
+          var game = JSON.parse(window.localStorage.searchTitle);
+          // remove it
+          window.localStorage.removeItem('searchTitle');
+          this.doSearch(game.title);
+        }
+      },
+      doSearch: function(title){
         showNewIndicator();
 
         var self = this;
-        var s = $('#search_text').val();
+        var s = (title && title.length > 0) ? title : $('#search_text').val();
         if(s.length > 0){
           //save search terms
           var recentSearches = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
@@ -42,6 +55,9 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
           var gameCollection = new GameCollection([], { searchTerms: s });
           gameCollection.fetch({
             success: function(){
+              //this is used when the game is loaded from the recent searches view
+              $('#search_text').val(s);
+
               gameCollectionView = new GameCollectionView({ collection: gameCollection });
               gameCollectionView.render();
               $('.search-results-title').html('Results for &quot;' + s + '&quot;');

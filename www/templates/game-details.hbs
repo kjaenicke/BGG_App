@@ -30,9 +30,9 @@
             </div>
             <div class="col-60">
               <h1>{{ title }}</h1>
-              <h4>Year Published: {{ yearPublished }}</h4>
-              <h4>Playing Time: {{ playingTime }}</h4>
-              <h4>Recommended Age: {{ minAge }}+</h4>
+              {{#if yearPublished }}<h4>Year Published: {{ yearPublished }}</h4>{{/if}}
+              {{#if playingTime }}<h4>Playing Time: {{ playingTime }}</h4>{{/if}}
+              {{#if minAge }}<h4>Recommended Age: {{ minAge }}+</h4>{{/if}}
             </div>
           </div>
           <div class="row">

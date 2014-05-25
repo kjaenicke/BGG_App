@@ -110,15 +110,16 @@ require.config({
 <!-- Path to your app js-->
 <script>
   //load up dat app
-  require(['js/app'], function(app){
+  require(['js/app', 'jquery'], function(app, $){
     app.Start();
+
+    document.onkeyup=function(e) {
+      if(e.which == 13){
+        $('#search_text').blur();
+        return false;
+      }
+    };
   });
-  document.onkeyup=function(e) {
-    if(e.which == 13){
-      $('#search_text').blur();
-      return false;
-    }
-  };
 </script>
 </script>
 </body>
