@@ -144,15 +144,17 @@
             {{/if}}
             {{#if publisher }}
             <li><div class="item-divider">Publisher</div></li>
+            {{#each publisher }}
             <li>
               <div class="item-content">
                 <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
                 <div class="item-inner">
-                  <div class="item-title">{{ publisher }}</div>
+                  <div class="item-title">{{ this }}</div>
                   <!-- <div class="item-after">CEO</div> -->
                 </div>
               </div>
             </li>
+            {{/each}}
             {{/if}}
           </ul>
         </div>
