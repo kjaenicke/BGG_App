@@ -27,8 +27,8 @@
   color: #3ba501;
 }
 
-.fa-star {
-  color: gold !important;
+.fa.fa-linefix {
+  line-height: inherit;
 }
 
 .recent-search .fa {
@@ -94,4 +94,16 @@ div[class*="col-"] img {
 
 span.link {
   color: #007aff;
+}
+
+div.item-text.multiline {
+  display: block;
+  text-transform: none;
+  min-height: 42px;
+  height: auto;
+  color: #717171;
+}
+
+div.list-block .item-after {
+  color: #000;
 }

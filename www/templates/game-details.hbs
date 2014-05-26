@@ -92,98 +92,117 @@
 
       <div id="tab-2" class="tab">
         <div class="list-block search-box">
-          <ul>
 
-            {{#if playingTime }}
-            <li><div class="item-divider">Playing Time</div></li>
-            <li>
-              <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner">
-                  <div class="item-title">{{ playingTime }} minutes</div>
-                  <!-- <div class="item-after">CEO</div> -->
+          {{#if playingTime }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Playing Time</li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ playingTime }} minutes</div>
+                  </div>
                 </div>
-              </div>
-            </li>
-            {{/if}}
-            {{#if minPlayers }}
-            <li><div class="item-divider">Number of Players</div></li>
-            <li>
-              <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner">
-                  <div class="item-title">{{ minPlayers }}{{#if maxPlayers}} - {{ maxPlayers }}{{/if}}</div>
-                  <!-- <div class="item-after">CEO</div> -->
+              </li>
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if minPlayers }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Number of Players</li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ minPlayers }}{{#if maxPlayers}} - {{ maxPlayers }}{{/if}}</div>
+                  </div>
                 </div>
-              </div>
-            </li>
-            {{/if}}
-            {{#if minAge }}
-            <li><div class="item-divider">Minimum Age</div></li>
-            <li>
-              <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner">
-                  <div class="item-title">{{ minAge }}</div>
-                  <!-- <div class="item-after">CEO</div> -->
+              </li>
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if minAge }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Minimum Age</li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ minAge }}</div>
+                  </div>
                 </div>
-              </div>
-            </li>
-            {{/if}}
-            {{#if yearPublished }}
-            <li><div class="item-divider">Year Published</div></li>
-            <li>
-              <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner">
-                  <div class="item-title">{{ yearPublished }}</div>
-                  <!-- <div class="item-after">CEO</div> -->
+              </li>
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if yearPublished }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Year Published</li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ yearPublished }}</div>
+                  </div>
                 </div>
-              </div>
-            </li>
-            {{/if}}
-            {{#if publisher }}
-            <li><div class="item-divider">Publisher</div></li>
-            {{#each publisher }}
-            <li>
-              <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner">
-                  <div class="item-title">{{ this }}</div>
-                  <!-- <div class="item-after">CEO</div> -->
+              </li>
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if publisher }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Publisher</li>
+              {{#each publisher }}
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ this }}</div>
+                  </div>
                 </div>
-              </div>
-            </li>
-            {{/each}}
-            {{/if}}
-            {{#if honor }}
-            <li><div class="item-divider">Honors</div></li>
-            {{#each honor }}
-            <li>
-              <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner">
-                  <div class="item-title">{{ this }}</div>
-                  <!-- <div class="item-after">CEO</div> -->
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if honor }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Honors</li>
+              {{#each honor }}
+              <li>
+                <div class="item-content">
+                  <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                  <div class="item-inner">
+                    <div class="item-title">{{ this }}</div>
+                    <!-- <div class="item-after">CEO</div> -->
+                  </div>
                 </div>
-              </div>
-            </li>
-            {{/each}}
-            {{/if}}
-          </ul>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
         </div>
       </div>
 
       <div id="tab-3" class="tab">
-        <div class="list-block search-box">
+        <div class="list-block media-list search-box">
           <ul>
             {{#each comments}}
             <li>
               <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner multiline">
-                  <div class="item-title">{{{ this }}}</div>
-                  <!-- <div class="item-after">CEO</div> -->
+                <div class="item-inner">
+                  <div class="item-title-row">
+                    <div class="item-title">By: {{ this.author }}</div>
+                    <div class="item-after">Rating: {{ this.rating }} <i class="fa fa-linefix fa-star fa-fw"></i></div>
+                  </div>
+                  <div class="item-text multiline">{{ this.text }}</div>
                 </div>
               </div>
             </li>
