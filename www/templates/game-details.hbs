@@ -153,6 +153,57 @@
           </div>
           {{/if}}
 
+          {{#if mechanic }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Mechanics</li>
+              {{#each mechanic }}
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if category }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Categories</li>
+              {{#each category }}
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if subdomain }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Subdomains</li>
+              {{#each subdomain }}
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
           {{#if publisher }}
           <div class="list-group">
             <ul>
@@ -188,6 +239,64 @@
             </ul>
           </div>
           {{/if}}
+
+          {{#if designer }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Designers</li>
+              {{#each designer }}
+              <li>
+                <div class="item-content">
+                  <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                  <div class="item-inner">
+                    <div class="item-title">{{ this }}</div>
+                    <!-- <div class="item-after">CEO</div> -->
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if artist }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Artists</li>
+              {{#each artist }}
+              <li>
+                <div class="item-content">
+                  <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                  <div class="item-inner">
+                    <div class="item-title">{{ this }}</div>
+                    <!-- <div class="item-after">CEO</div> -->
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if versions }}
+          <div class="list-group">
+            <ul>
+              <li class="list-group-title">Versions</li>
+              {{#each versions }}
+              <li>
+                <div class="item-content">
+                  <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                  <div class="item-inner">
+                    <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                    <!-- <div class="item-after">CEO</div> -->
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
         </div>
       </div>
 
