@@ -16,11 +16,9 @@ define(['Backbone',
       render: function(){
         var self = this;
         $(this.el).html(template(this.model.toJSON()));
-        // $(this.el).addClass('liSearchTerm');
-        var self = this;
         $(this.el).on('click', function(){
           self.showDetails();
-        })
+        });
         return this;
       },
       showDetails: function(){
