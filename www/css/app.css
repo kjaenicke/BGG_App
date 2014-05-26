@@ -27,6 +27,10 @@
   color: #3ba501;
 }
 
+.fa-star {
+  color: gold !important;
+}
+
 .recent-search .fa {
   color: #267bd8;
 }

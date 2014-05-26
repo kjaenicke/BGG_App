@@ -1,15 +1,20 @@
-define(['Backbone', 'Marionette', 'hbs!templates/game-simple', 'hbs!templates/game-details', 'js/models/game'],
-  function(Backbone, Marionette, template, detailsTemplate, GameModel){
+define(['Backbone',
+        'Marionette',
+        'hbs!templates/game-simple',
+        'js/models/game',
+        'js/views/gameDetail'],
+  function(Backbone, Marionette, template, GameModel, DetailedGameView){
 
   var GameView = Backbone.Marionette.ItemView.extend({
       tagName: 'li',
       ui: {
-        gameTitle: '.game-title'
+        gameTitle: '.game-title',
       },
       events: {
         'click @ui.gameTitle' : 'showDetails'
       },
       render: function(){
+        var self = this;
         $(this.el).html(template(this.model.toJSON()));
         return this;
       },
@@ -24,17 +29,18 @@ define(['Backbone', 'Marionette', 'hbs!templates/game-simple', 'hbs!templates/ga
           self.gameModel = new GameModel({ id: self.model.get('id'), details: true });
             self.gameModel.fetch({ success: function(){
               //create html for details view
-              var gameTemplate = detailsTemplate(self.gameModel.toJSON());
-              $('.game-page').html(gameTemplate);
+              self.detailedGameView = new DetailedGameView({ model: self.gameModel });
+              self.detailedGameView.render();
+
+              $('.game-page').html(self.detailedGameView.el);
               hideNewIndicator();
             }
           });
         }
         else {
             //create html for details view
-            var gameTemplate = detailsTemplate(self.gameModel.toJSON());
             theApp.views[0].loadPage("game.html");
-            $('.game-page').html(gameTemplate);
+            $('.game-page').html(self.detailedGameView.el);
           }
         }
     });

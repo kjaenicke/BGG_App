@@ -3,8 +3,10 @@ define(['Backbone',
         'js/views/main-layout',
         'js/views/search-layout',
         'js/views/recentSearches',
-        'js/models/recentSearches'],
-  function(Backbone, Marionette, MainLayout, SearchLayout, RecentSearchView, RecentSearchesModel){
+        'js/models/recentSearches',
+        'js/models/bookmarksCollection',
+        'js/views/bookmarks'],
+  function(Backbone, Marionette, MainLayout, SearchLayout, RecentSearchView, RecentSearchesModel, BookmarksCollection, BookmarksView){
 
   var app = {
     Start: function(){
@@ -34,8 +36,7 @@ define(['Backbone',
         var page = e.detail.page;
       });
 
-      // Option 2. Using live 'pageInit' event handlers for each page
-      $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
+    $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
         var recentList = $('.search-box');
 
         var recentSearchesModel = new RecentSearchesModel();
@@ -44,6 +45,19 @@ define(['Backbone',
             var recentSearchView = new RecentSearchView({ collection:  new Backbone.Collection(data) });
             recentSearchView.render();
             $('.search-box').html(recentSearchView.el);
+          }
+        });
+      });
+
+      $$(document).on('pageAfterAnimation', '.page[data-page="bookmarks"]', function (e) {
+        var recentList = $('.search-box');
+
+        var bookmarksCollection = new BookmarksCollection();
+        bookmarksCollection.fetch({
+          success: function(data){
+            var bookmarksView = new BookmarksView({ collection:  new Backbone.Collection(data) });
+            bookmarksView.render();
+            $('.search-box').html(bookmarksView.el);
           }
         });
       });
