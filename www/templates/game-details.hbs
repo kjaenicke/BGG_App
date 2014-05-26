@@ -54,9 +54,21 @@
             <li><div class="item-divider">Board Game Rank</div></li>
             <li>
               <div class="item-content">
-                <div class="item-media"><i class="ico-stats-up"></i></div>
+                <div class="item-media"><i class="ico-podium"></i></div>
                 <div class="item-inner">
                   <div class="item-title">{{ boardGameRank }}</div>
+                  <!-- <div class="item-after">CEO</div> -->
+                </div>
+              </div>
+            </li>
+            {{/if}}
+            {{#if rating }}
+            <li><div class="item-divider">Rating</div></li>
+            <li>
+              <div class="item-content">
+                <div class="item-media"><i class="ico-stats-up"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">{{ rating }}</div>
                   <!-- <div class="item-after">CEO</div> -->
                 </div>
               </div>
@@ -82,25 +94,25 @@
         <div class="list-block search-box">
           <ul>
 
-            {{#if yearPublished }}
-            <li><div class="item-divider">Year Published</div></li>
-            <li>
-              <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
-                <div class="item-inner">
-                  <div class="item-title">{{ yearPublished }}</div>
-                  <!-- <div class="item-after">CEO</div> -->
-                </div>
-              </div>
-            </li>
-            {{/if}}
             {{#if playingTime }}
             <li><div class="item-divider">Playing Time</div></li>
             <li>
               <div class="item-content">
                 <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
                 <div class="item-inner">
-                  <div class="item-title">{{ playingTime }}</div>
+                  <div class="item-title">{{ playingTime }} minutes</div>
+                  <!-- <div class="item-after">CEO</div> -->
+                </div>
+              </div>
+            </li>
+            {{/if}}
+            {{#if minPlayers }}
+            <li><div class="item-divider">Number of Players</div></li>
+            <li>
+              <div class="item-content">
+                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                <div class="item-inner">
+                  <div class="item-title">{{ minPlayers }}{{#if maxPlayers}} - {{ maxPlayers }}{{/if}}</div>
                   <!-- <div class="item-after">CEO</div> -->
                 </div>
               </div>
@@ -113,6 +125,30 @@
                 <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
                 <div class="item-inner">
                   <div class="item-title">{{ minAge }}</div>
+                  <!-- <div class="item-after">CEO</div> -->
+                </div>
+              </div>
+            </li>
+            {{/if}}
+            {{#if yearPublished }}
+            <li><div class="item-divider">Year Published</div></li>
+            <li>
+              <div class="item-content">
+                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                <div class="item-inner">
+                  <div class="item-title">{{ yearPublished }}</div>
+                  <!-- <div class="item-after">CEO</div> -->
+                </div>
+              </div>
+            </li>
+            {{/if}}
+            {{#if publisher }}
+            <li><div class="item-divider">Publisher</div></li>
+            <li>
+              <div class="item-content">
+                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                <div class="item-inner">
+                  <div class="item-title">{{ publisher }}</div>
                   <!-- <div class="item-after">CEO</div> -->
                 </div>
               </div>
