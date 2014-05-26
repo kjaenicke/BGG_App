@@ -1,4 +1,3 @@
-
 <div class="toolbar tabbar tabbar-labels">
   <div class="toolbar-inner">
     <a href="#tab-1" class="tab-link active">
@@ -29,10 +28,10 @@
               <img style="" src="{{ thumbURL }}" />
             </div>
             <div class="col-60">
-              <h1>{{ title }}</h1>
-              <h4>Year Published: {{ yearPublished }}</h4>
-              <h4>Playing Time: {{ playingTime }}</h4>
-              <h4>Recommended Age: {{ minAge }}+</h4>
+              <h1>{{ title }} <span class="bookmark fa fa-star-o" style="float:right"></span></h1>
+              {{#if yearPublished }}<h4>Year Published: {{ yearPublished }}</h4>{{/if}}
+              {{#if playingTime }}<h4>Playing Time: {{ playingTime }}</h4>{{/if}}
+              {{#if minAge }}<h4>Recommended Age: {{ minAge }}+</h4>{{/if}}
             </div>
           </div>
           <div class="row">
@@ -67,6 +66,26 @@
           <p>Nulla gravida libero eget lobortis iaculis. In sed elit eu nibh adipiscing faucibus. Sed ac accumsan lacus. In ut diam quis turpis fringilla volutpat. In ultrices dignissim consequat. Cras pretium tortor et lorem condimentum posuere. Nulla facilisi. Suspendisse pretium egestas lacus ac laoreet. Mauris rhoncus quis ipsum quis tristique. Vivamus ultricies urna quis nunc egestas, in euismod turpis fringilla. Nam tellus massa, vehicula eu sapien non, dapibus tempor lorem. Fusce placerat orci arcu, eu dignissim enim porttitor vel. Nullam porttitor vel dolor sed feugiat. Suspendisse potenti. Maecenas ac mattis odio. Sed vel ultricies lacus, sed posuere libero.</p>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="toolbar tabbar tabbar-labels">
+    <div class="toolbar-inner">
+      <a href="#tab-1" class="tab-link active">
+        <i class="fa fa-info-circle fa-2x"></i>
+        <span class="tabbar-label">Information</span>
+      </a>
+      <a href="#tab-2" class="tab-link">
+        <i class="fa fa-inbox fa-2x"></i>
+        <span class="tabbar-label">Inbox</span>
+      </a>
+      <a href="#tab-3" class="tab-link">
+        <i class="fa fa-cloud-upload fa-2x"></i>
+        <span class="tabbar-label">Upload</span>
+      </a>
+      <!-- <a href="#tab-4s" class="tab-link">
+        <i class="fa fa-photo fa-2x"></i>
+        <span class="tabbar-label">Photos</span>
+      </a> -->
     </div>
   </div>
 </div>

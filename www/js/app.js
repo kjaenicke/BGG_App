@@ -1,11 +1,18 @@
-define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layout'],
-  function(Backbone, Marionette, MainLayout, SearchLayout){
+define(['Backbone',
+        'Marionette',
+        'js/views/main-layout',
+        'js/views/search-layout',
+        'js/views/recentSearches',
+        'js/models/recentSearches',
+        'js/models/bookmarksCollection',
+        'js/views/bookmarks'],
+  function(Backbone, Marionette, MainLayout, SearchLayout, RecentSearchView, RecentSearchesModel, BookmarksCollection, BookmarksView){
 
   var app = {
     Start: function(){
       // Initialize app and store it to theApp variable for futher access to its methods
       //the app was FAT
-      var theApp = new Framework7();
+      var theApp = new Framework7({});
 
       //make that gayness global
       window.theApp = theApp;
@@ -29,31 +36,32 @@ define(['Backbone', 'Marionette', 'js/views/main-layout', 'js/views/search-layou
         var page = e.detail.page;
       });
 
-      // Option 2. Using live 'pageInit' event handlers for each page
-      $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
-        var recentList = $('.recent-searches .list-block ul');
-        var itemsHTML = '';
-        var recentItems = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
-        var uniqueSearches = [];
-        $.each(recentItems, function(i, el){
-            if($.inArray(el, uniqueSearches) === -1) uniqueSearches.push(el);
-        });
-        if (uniqueSearches.length > 0){
-          for(var i = 0; i < uniqueSearches.length; i++){
-            itemsHTML += '<li class="recent-search"><a href="#" class="item-link item-content">';
-            itemsHTML +=  '<div class="item-media"><i class="fa fa-clock-o fa-fw fa-lg"></i></div>';
-            itemsHTML +=  '<div class="item-inner">';
-            itemsHTML +=  '<div class="item-title">' + uniqueSearches[i] + '</div>';
-            itemsHTML +=  '</div></a></li>';
-          }
+    $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
+        var recentList = $('.search-box');
 
-          $(recentList).html(itemsHTML);
-        }
-        else{
-          $(recentList).html('<li class="item-content"><div class="item-media"><i class="fa fa-star fa-spin fa-fw fa-lg"></i></div><div class="item-inner"><div class="item-title">No searches found.</div></div></li>');
-        }
+        var recentSearchesModel = new RecentSearchesModel();
+        recentSearchesModel.fetch({
+          success: function(data){
+            var recentSearchView = new RecentSearchView({ collection:  new Backbone.Collection(data) });
+            recentSearchView.render();
+            $('.search-box').html(recentSearchView.el);
+          }
+        });
       });
-      
+
+      $$(document).on('pageAfterAnimation', '.page[data-page="bookmarks"]', function (e) {
+        var recentList = $('.search-box');
+
+        var bookmarksCollection = new BookmarksCollection();
+        bookmarksCollection.fetch({
+          success: function(data){
+            var bookmarksView = new BookmarksView({ collection:  new Backbone.Collection(data) });
+            bookmarksView.render();
+            $('.search-box').html(bookmarksView.el);
+          }
+        });
+      });
+
       //create main layout
       var layout = new MainLayout();
       layout.render();
