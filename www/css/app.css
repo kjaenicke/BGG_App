@@ -56,3 +56,19 @@ div[class*="col-"] img {
 .tab .content-block {
   margin-top: 10px;
 }
+
+.search-results li:active{
+  background-color: #007aff;
+}
+
+.search-results li:active div.item-content .game-title,
+.search-results li:active div.item-content i.fa-boardgame,
+.search-results li:active div.item-content i.fa-rpgitem,
+.search-results li:active div.item-content i.fa-videogame,
+.search-results li:active div.item-content i.fa-boardgameexpansion {
+  color: #ffffff !important;
+}
+
+ {
+  color: #ffffff !important;
+}

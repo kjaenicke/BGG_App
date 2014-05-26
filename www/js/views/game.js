@@ -4,13 +4,18 @@ define(['Backbone', 'Marionette', 'hbs!templates/game-simple', 'hbs!templates/ga
   var GameView = Backbone.Marionette.ItemView.extend({
       tagName: 'li',
       ui: {
-        gameTitle: '.game-title'
+        gameTitle: 'li'
       },
       events: {
         'click @ui.gameTitle' : 'showDetails'
       },
       render: function(){
         $(this.el).html(template(this.model.toJSON()));
+        // $(this.el).addClass('liSearchTerm');
+        var self = this;
+        $(this.el).on('click', function(){
+          self.showDetails();
+        })
         return this;
       },
       showDetails: function(){
