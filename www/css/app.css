@@ -52,6 +52,11 @@ div[class*="col-"] {
   padding: 5px;
 }
 
+div[class*="col-"].empty {
+  background: none;
+  border: none;
+}
+
 div[class*="col-"] img {
   max-width:100%;
   max-height:100%;
@@ -73,6 +78,20 @@ div[class*="col-"] img {
   color: #ffffff !important;
 }
 
- {
-  color: #ffffff !important;
+.multiline > div.item-title {
+  text-transform: none;
+  white-space: normal;
+}
+
+.item-inner.centered > img{
+  margin-left: auto;
+  margin-right: auto
+}
+
+.fa-2x {
+  font-size: 1.75em;
+}
+
+span.link {
+  color: #007aff;
 }
