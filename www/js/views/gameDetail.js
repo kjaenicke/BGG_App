@@ -13,7 +13,7 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details']
       },
       render: function(){
         var self = this;
-        $(this.el).html(template(this.model.toJSON()));
+        this.el = template(this.model.toJSON());
         return this;
       },
       toggleBookmark: function(){
