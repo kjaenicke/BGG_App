@@ -2,21 +2,26 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details',
   function(Backbone, Marionette, GameView, template, PhotoCollection){
 
     var GameDetailView = Backbone.Marionette.ItemView.extend({
-      ui: {
-        bookmark: '.bookmark'
-      },
-      events: {
-        'click @ui.bookmark'      : 'toggleBookmark'
-      },
       initialize: function(options){
         this.model = this.options.model;
-        _.bindAll(this, 'fetchImages');
+        _.bindAll(this, 'fetchImages', 'toggleBookmark');
+        this.model.setBookMarkStatus();
+
+        if(this.model.get('isBookmarked')){
+          $('.bookmark').removeClass('fa-bookmark-o');
+          $('.bookmark').addClass('fa-bookmark');
+        }
       },
       render: function(){
         var self = this;
         window.modelOutput = this.model;
         this.el = template(this.model.toJSON());
         this.fetchImages();
+
+        $('.bookmark').on('click', function(){
+          self.toggleBookmark();
+        });
+
         return this;
       },
       fetchImages: function(){
@@ -30,18 +35,16 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details',
             photoBrowserPhotos.push(self.photoCollection.models[i].get('url').replace('_t.jpg', '.jpg'));
           }
 
+          self.photoBrowserStandalone = null;
           self.photoBrowserStandalone = theApp.photoBrowser({
               photos: photoBrowserPhotos
           });
 
-          $(document).on('click', '.photoGallery', function(){
+          $('.photoGallery').on('click', function(){
             self.photoBrowserStandalone.open();
           });
 
-          setTimeout(function(){
-              $('.photoGallery').show();
-          }, 100);
-
+          $('.photoGallery').removeClass('muted');
         }});
       },
       toggleBookmark: function(){
@@ -62,11 +65,13 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details',
           $('.bookmark').addClass('fa-bookmark-o');
 
           bookmarks = window.localStorage.bookmarks ? JSON.parse(window.localStorage.bookmarks) : [];
-          var index = bookmarks.indexOf(this.model);
 
-          if(index != -1){
-            bookmarks.splice(index, 1);
+          var alreadyBookmarked = _.findWhere(bookmarks, { id: this.model.get('id') });
+
+          if(alreadyBookmarked !== undefined){
+            bookmarks = _.without(bookmarks, alreadyBookmarked);
           }
+
           window.localStorage.bookmarks = JSON.stringify(bookmarks);
           return;
         }

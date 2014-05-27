@@ -13,6 +13,20 @@ define(['Backbone'],
           }
           Backbone.Model.prototype.fetch.call(this, options);
         }
+      },
+      setBookMarkStatus: function(){
+        bookmarks = window.localStorage.bookmarks ? JSON.parse(window.localStorage.bookmarks) : [];
+        var alreadyBookmarked = _.findWhere(bookmarks, { id: this.get('id') });
+
+        if(alreadyBookmarked !== undefined){
+          this.set({ isBookmarked: true });
+          return;
+        }
+
+        else{
+          this.set({ isBookmarked: false });
+          return;
+        }
       }
     });
 

@@ -107,3 +107,7 @@ div.item-text.multiline {
 div.list-block .item-after {
   color: #000;
 }
+
+.muted{
+  background: #e0e0e0;
+}
