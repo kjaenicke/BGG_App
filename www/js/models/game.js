@@ -2,7 +2,7 @@ define(['Backbone'],
   function(Backbone){
     //MODEL FOR INDIVIDUAL GAME
     GameModel = Backbone.Model.extend({
-      baseUrl: 'http://powerful-cove-3241.herokuapp.com/game',
+      baseUrl: 'http://bgg-middleware.herokuapp.com/game',
       fetch: function(options){
         if(this.get('id')){
           if(this.get('details')){

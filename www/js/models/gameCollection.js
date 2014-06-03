@@ -4,7 +4,7 @@ define(['Backbone', 'js/models/game'],
     //COLLECTION OF GAMES
     var GameCollection = Backbone.Collection.extend({
       // model: GameModel,
-      baseUrl: 'http://powerful-cove-3241.herokuapp.com/search?searchTerms=',
+      baseUrl: 'http://bgg-middleware.herokuapp.com/search?searchTerms=',
       initialize: function(models, options){
         //grab parameters for game collection
         if(options.searchTerms){
