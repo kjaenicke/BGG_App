@@ -4,7 +4,10 @@
     $ cd www
     $ npm install
     $ bower install
-    
+
 ## Grunt Tasks
     $ grunt
-- Default task for JSHint
+- Default Task
+  - Minifies and combines app-specific css
+  - Copies important Bower files to a dist folder
+  - JSHint's all the .js files

@@ -47,13 +47,36 @@ module.exports = function(grunt) {
     },
     jshint:{
       all: ['./js/**/*.js']
+    },
+    clean: {
+      build: ['bower_dist'],
+      release: ['bower_dist']
+      // Add bower_components removal
+    },
+    cssmin: {
+      minify: {
+        expand: true,
+        cwd: 'css/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'css/',
+        ext: '.min.css'
+      },
+      combine: {
+        files: {
+          'css/compile.min.css': ['css/ico.min.css','css/index.min.css','css/app.min.css']
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  // Default task(s).
-  grunt.registerTask('default', ['copy', 'jshint']);
+  grunt.registerTask('default', ['cssmin', 'copy', 'jshint']);
+  grunt.registerTask('jscopy', 'copy');
+  grunt.registerTask('release', ['clean:release', 'copy', 'jshint']);
 
 };
