@@ -6,12 +6,12 @@
 require.config({
   baseUrl: './',
   paths: {
-    Backbone    : 'bower_components/backbone/backbone',
-    Marionette  : 'bower_components/marionette/lib/backbone.marionette',
-    jquery      : 'bower_components/jquery/dist/jquery',
-    underscore  : 'bower_components/underscore/underscore',
-    handlebars  : 'bower_components/handlebars/handlebars',
-    hbs         : 'bower_components/require-handlebars-plugin/hbs'
+    Backbone    : 'bower_dist/backbone/backbone',
+    Marionette  : ['bower_dist/marionette/backbone.marionette.min','bower_dist/marionette/backbone.marionette'],
+    jquery      : ['bower_dist/jquery/jquery.min', 'bower_dist/jquery/jquery'],
+    underscore  : 'bower_dist/underscore/underscore',
+    handlebars  : 'bower_dist/handlebars',
+    hbs         : 'bower_dist/require-handlebars-plugin/hbs'
   },
   shim: {
     underscore: {
@@ -55,11 +55,11 @@ require.config({
   <!-- Panels overlay-->
   <div class="panel-overlay"></div>
   <!-- Left panel with reveal effect-->
-  <div class="panel panel-right panel-reveal">
+  <div class="panel panel-left panel-cover">
     <!-- <div class="content-block-title">Actions</div> -->
       <div class="list-block">
         <ul>
-          <li><a href="bookmarks.html" id="panelBookmarks" class="close-panel item-link">
+          <li><a href="bookmarks.html" id="panelBookmarks" class=" close-panel item-link">
               <div class="item-content">
                   <div class="item-media"><i class="fa fa-bookmark fa-lg"></i></div>
                   <div class="item-inner">
@@ -67,7 +67,7 @@ require.config({
                   </div>
               </div></a>
           </li>
-          <li><a href="recent-searches.html" id="recentSearches" class="close-panel item-link">
+          <li><a href="recent-searches.html" id="recentSearches" class=" close-panel item-link">
               <div class="item-content">
                   <div class="item-media"><i class="fa fa-history fa-lg"></i></div>
                   <div class="item-inner">
@@ -89,11 +89,13 @@ require.config({
       <div class="navbar">
         <div class="navbar-inner">
           <div class="left">
-            <a href="search.html" class="link icon-only"><i class="fa fa-search fa-lg "></i></a>
+            <!-- <a href="search.html" class="link icon-only"><i class="fa fa-search fa-lg "></i></a> -->
+            <a href="#" class="link icon-only open-panel"><i class="fa fa-bars fa-fw fa-lg"></i></a>
           </div>
           <div class="center sliding">The Geek Reference</div>
           <div class="right">
-            <a href="#" class="link icon-only open-panel"><i class="fa fa-bars fa-fw fa-lg"></i></a>
+            <!-- <a href="#" class="link icon-only open-panel"><i class="fa fa-bars fa-fw fa-lg"></i></a> -->
+            <a href="search.html" class="link icon-only"><i class="fa fa-search fa-lg "></i></a>
           </div>
         </div>
       </div>
@@ -101,7 +103,7 @@ require.config({
         <!-- Page, "data-page" contains page name -->
         <div data-page="index" class="page">
           <!-- Scrollable page content -->
-          <div class="page-content">
+          <div class="page-content" style="background-color: lightblue;">
           </div>
         </div>
       </div>
