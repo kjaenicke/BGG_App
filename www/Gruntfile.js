@@ -8,6 +8,12 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
+            src: ['bower_components/requirejs/require.js'],
+            dest: 'bower_dist/requirejs/',
+            filter: 'isFile', flatten: true
+          },
+          {
+            expand: true,
             src: ['bower_components/underscore/underscore.js'],
             dest: 'bower_dist/underscore/',
             filter: 'isFile', flatten: true
@@ -41,6 +47,21 @@ module.exports = function(grunt) {
             src: ['bower_components/backbone/backbone.js'],
             dest: 'bower_dist/backbone',
             filter: 'isFile', flatten: true
+          },
+          {
+            expand: true,
+            src: [
+              'bower_components/framework7/dist/css/framework7.min.css',
+              'bower_components/framework7/dist/js/framework7.min.js'
+            ],
+            dest: 'bower_dist/f7',
+            filter: 'isFile', flatten: true
+          },
+          {
+            expand: true,
+            cwd: 'bower_components/fontawesome/',
+            src: ['css/font-awesome.min.css', 'fonts/*'],
+            dest: 'bower_dist/fontawesome'
           }
         ]
       }

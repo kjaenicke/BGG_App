@@ -1,13 +1,13 @@
 <!DOCTYPE>
 <html>
 <head  class="with-statusbar-overlay">
-<script type="text/javascript" src="bower_components/requirejs/require.js"></script>
+<script type="text/javascript" src="bower_dist/requirejs/require.js"></script>
 <script>
 require.config({
   baseUrl: './',
   paths: {
     Backbone    : 'bower_dist/backbone/backbone',
-    Marionette  : ['bower_dist/marionette/backbone.marionette.min','bower_dist/marionette/backbone.marionette'],
+    Marionette  : 'bower_dist/marionette/backbone.marionette',
     jquery      : ['bower_dist/jquery/jquery.min', 'bower_dist/jquery/jquery'],
     underscore  : 'bower_dist/underscore/underscore',
     handlebars  : 'bower_dist/handlebars',
@@ -40,9 +40,9 @@ require.config({
 <!-- Your app title -->
 <title>BGG</title>
 <!-- Path to Framework7 Library CSS-->
-<link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.min.css">
+<link rel="stylesheet" href="bower_dist/f7/framework7.min.css">
 <!-- Path to FontAwesome icons -->
-<link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="bower_dist/fontawesome/css/font-awesome.min.css">
 <!-- <link rel="stylesheet" href="css/ico.css">
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/app.css"> -->
@@ -109,7 +109,7 @@ require.config({
     </div>
   </div>
 <!-- Path to Framework7 Library JS-->
-<script type="text/javascript" src="bower_components/framework7/dist/js/framework7.min.js"></script>
+<script type="text/javascript" src="bower_dist/f7/framework7.min.js"></script>
 <!-- Path to your app js-->
 <script>
   //load up dat app
