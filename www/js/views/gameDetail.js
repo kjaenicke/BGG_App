@@ -32,7 +32,7 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details',
           var photoBrowserPhotos = [];
 
           for(var i = 0; i < self.photoCollection.models.length; i++){
-            photoBrowserPhotos.push(self.photoCollection.models[i].get('url').replace('_t.jpg', '.jpg'));
+            photoBrowserPhotos.push(self.photoCollection.models[i].get('url').replace('_t.jpg', '_md.jpg'));
           }
 
           self.photoBrowserStandalone = null;
