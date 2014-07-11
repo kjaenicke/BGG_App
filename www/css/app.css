@@ -111,3 +111,7 @@ div.list-block .item-after {
 .muted{
   background: #e0e0e0;
 }
+
+div.center.sliding {
+  min-width: 60px;
+}
