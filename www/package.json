@@ -1,7 +1,11 @@
 {
-  "name"          : "BoardGameGeek",
-  "version"       : "0.1.0",
-  "contributors"  : ["Keenan Jaenicke", "Shawn Hoffman"],
+  "name": "BoardGameGeek",
+  "description": "Unofficial BoardGameGeek iOS app. Great for researching your next tabletop game.",
+  "version": "0.1.0",
+  "contributors": [
+    "Keenan Jaenicke",
+    "Shawn Hoffman"
+  ],
   "scripts": {
     "test": "grunt --verbose"
   },
@@ -9,6 +13,7 @@
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-cli": "0.1.9",
-    "grunt-contrib-jshint": "0.6.3"
+    "grunt-contrib-jshint": "0.6.3",
+    "grunt-contrib-copy": "~0.5.0"
   }
 }
