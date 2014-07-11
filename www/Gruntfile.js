@@ -50,8 +50,7 @@ module.exports = function(grunt) {
     },
     clean: {
       build: ['bower_dist'],
-      release: ['bower_dist']
-      // Add bower_components removal
+      release: ['bower_components']
     },
     cssmin: {
       minify: {
@@ -77,6 +76,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['cssmin', 'copy', 'jshint']);
   grunt.registerTask('jscopy', 'copy');
-  grunt.registerTask('release', ['clean:release', 'copy', 'jshint']);
+  grunt.registerTask('release', ['clean:build', 'cssmin', 'copy', 'clean:release', 'jshint']);
 
 };
