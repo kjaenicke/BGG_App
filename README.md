@@ -1,13 +1,28 @@
 # BGG iOS APP v0.1.0 [![Build Status](https://travis-ci.org/kjaenicke/BGG_App.png)](https://travis-ci.org/kjaenicke/BGG_App)
+## Description
+Cool stuff
 
-## Setup
+## Initial Setup
     $ cd www
     $ npm install
     $ bower install
 
 ## Grunt Tasks
-    $ grunt
-- Default Task
-  - Minifies and combines app-specific css
-  - Copies important Bower files to a dist folder
-  - JSHint's all the .js files
+
+### *Default*
+    $ grunt   
+- Minifies and combines app-specific css into `compile.min.css`
+- Copies important Bower files to the bower_dist directory
+- JSHint's all of the .js files
+
+### Release
+	$ grunt release
+- Removes everything from the bower_dist directory 
+- Minifies and combines app-specific css into `compile.min.css`
+- Copies important Bower files to the bower_dist directory
+- Removes the bower_components directory
+- JSHint's all of the .js files
+	
+### JSCopy
+	$ grunt jscopy
+- Copies important Bower files to the bower_dist directory
