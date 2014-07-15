@@ -118,14 +118,32 @@ require.config({
       </div>
     </div>
   </div>
-<!-- Path to Framework7 Library JS-->
-<!-- <script type="text/javascript" src="bower_dist/f7/framework7.min.js"></script> -->
+  <!-- LOADING MODAL -->
+  <div class="modal modal-no-buttons modal-in" style="margin-top: -47px;">
+    <div class="modal-inner">
+      <div class="modal-title">Loading...</div>
+      <div class="modal-text">
+        <i class="fa fa-refresh fa-spin fa-3x"></i>
+      </div>
+    </div>
+    <div class="modal-buttons"></div>
+  </div>
+  <!-- LOADING MASK -->
+  <div class="modal-overlay modal-overlay-visible"></div>
+  <!-- END LOADING -->
 <!-- Path to your app js-->
 <script>
   //load up dat app
   require(['js/app', 'jquery', 'Framework7'], function(app, $, $$){
 
+      setTimeout(function () {
+        console.log('removed');
+        $('.modal.modal-no-buttons.modal-in').remove();
+        $('.modal-overlay.modal-overlay-visible').remove();
+      }, 3500);
+
     var theApp = new Framework7({});
+
     //make that gayness global
     window.theApp = theApp;
     window.$$ = Framework7.$;
