@@ -6,8 +6,8 @@
       <span class="tabbar-label">Information</span>
     </a>
     <a href="#tab-2" class="tab-link">
-      <i class="fa fa-bar-chart-o fa-2x"></i>
-      <span class="tabbar-label">Details</span>
+      <i class="fa fa-bullhorn fa-2x"></i>
+      <span class="tabbar-label">Forums</span>
     </a>
     <a href="#tab-3" class="tab-link">
       <i class="fa fa-comments-o fa-2x"></i>
@@ -23,7 +23,6 @@
 <div class="page-content">
   <div class="tabs">
     <div id="tab-1" class="tab active">
-
       <div class="list-block search-box">
         <ul>
           {{#if title }}
@@ -86,11 +85,6 @@
           </li>
           {{/if}}
         </ul>
-      </div>
-    </div>
-
-    <div id="tab-2" class="tab">
-      <div class="list-block search-box">
 
         {{#if playingTime }}
         <div class="list-group">
@@ -160,7 +154,7 @@
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                  <div class="item-title">{{ this.value }}</div>
                 </div>
               </div>
             </li>
@@ -177,7 +171,7 @@
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                  <div class="item-title">{{ this.value }}</div>
                 </div>
               </div>
             </li>
@@ -194,7 +188,7 @@
             <li>
               <div class="item-content">
                 <div class="item-inner">
-                  <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                  <div class="item-title">{{ this.value }}</div>
                 </div>
               </div>
             </li>
@@ -227,7 +221,7 @@
             {{#each honor }}
             <li>
               <div class="item-content">
-                <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
+                <div class="item-media"><i class="fa fa-trophy"></i></div>
                 <div class="item-inner">
                   <div class="item-title">{{ this }}</div>
                   <!-- <div class="item-after">CEO</div> -->
@@ -286,7 +280,7 @@
               <div class="item-content">
                 <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
                 <div class="item-inner">
-                  <div class="item-title">{{ this.value }} - {{ this.id }}</div>
+                  <div class="item-title">{{ this.value }}</div>
                   <!-- <div class="item-after">CEO</div> -->
                 </div>
               </div>
@@ -296,6 +290,31 @@
         </div>
         {{/if}}
 
+        {{#if expansions }}
+        <div class="list-group">
+          <ul>
+            <li class="list-group-title">Expansions</li>
+            {{#each expansions }}
+            <li>
+              <div class="item-content">
+                <div class="item-media"><i class="fa fa-share-alt"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">{{ this.title }}</div>
+                  <!-- <div class="item-after">CEO</div> -->
+                </div>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/if}}
+
+      </div>
+    </div>
+
+    <div id="tab-2" class="tab">
+      <div class="list-block search-box">
+        <h1>Forums and shit</h1>
       </div>
     </div>
 

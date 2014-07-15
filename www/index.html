@@ -64,7 +64,7 @@ require.config({
         <ul>
           <li><a href="bookmarks.html" id="panelBookmarks" class=" close-panel item-link">
               <div class="item-content">
-                  <div class="item-media"><i class="fa fa-bookmark fa-lg"></i></div>
+                  <div class="item-media"><i class="fa fa-bookmark fa-lg fa-fw"></i></div>
                   <div class="item-inner">
                       <div class="item-title">Bookmarks</div>
                   </div>
@@ -72,16 +72,21 @@ require.config({
           </li>
           <li><a href="recent-searches.html" id="recentSearches" class=" close-panel item-link">
               <div class="item-content">
-                  <div class="item-media"><i class="fa fa-history fa-lg"></i></div>
+                  <div class="item-media"><i class="fa fa-history fa-lg fa-fw"></i></div>
                   <div class="item-inner">
                       <div class="item-title">Recent Searches</div>
                   </div>
               </div></a>
           </li>
+          <li><a href="legal.html" id="legal" class=" close-panel item-link">
+              <div class="item-content">
+                  <div class="item-media"><i class="fa fa-bank fa-lg fa-fw"></i></div>
+                  <div class="item-inner">
+                      <div class="item-title">Legal</div>
+                  </div>
+              </div></a>
+          </li>
         </ul>
-      </div>
-      <div class="content-block">
-          <p>This project is really cool and it just-so-happens to be available on GitHub <span class="fa fa-github"></span>.</p>
       </div>
   </div>
   <!-- Views -->
@@ -107,6 +112,7 @@ require.config({
         <div data-page="index" class="page">
           <!-- Scrollable page content -->
           <div class="page-content" style="background-color: lightblue;">
+            <h1 style="font-size: 7em; font-weight: bold;">Whoa!</h1>
           </div>
         </div>
       </div>
@@ -120,11 +126,9 @@ require.config({
   require(['js/app', 'jquery', 'Framework7'], function(app, $, $$){
 
     var theApp = new Framework7({});
-
     //make that gayness global
     window.theApp = theApp;
     window.$$ = Framework7.$;
-
     // We need to use custom DOM library, let's save it to $$ variable:
     var $$ = Framework7.$;
 
