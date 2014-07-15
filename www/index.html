@@ -11,11 +11,15 @@ require.config({
     jquery      : ['bower_dist/jquery/jquery.min', 'bower_dist/jquery/jquery'],
     underscore  : 'bower_dist/underscore/underscore',
     handlebars  : 'bower_dist/handlebars',
-    hbs         : 'bower_dist/require-handlebars-plugin/hbs'
+    hbs         : 'bower_dist/require-handlebars-plugin/hbs',
+    Framework7  : 'bower_dist/f7/framework7.min'
   },
   shim: {
     underscore: {
       exports: '_'
+    },
+    Framework7: {
+      exports: 'Framework7'
     },
     handlebars: {
       exports: 'Handlebars'
@@ -109,11 +113,21 @@ require.config({
     </div>
   </div>
 <!-- Path to Framework7 Library JS-->
-<script type="text/javascript" src="bower_dist/f7/framework7.min.js"></script>
+<!-- <script type="text/javascript" src="bower_dist/f7/framework7.min.js"></script> -->
 <!-- Path to your app js-->
 <script>
   //load up dat app
-  require(['js/app', 'jquery'], function(app, $){
+  require(['js/app', 'jquery', 'Framework7'], function(app, $, $$){
+
+    var theApp = new Framework7({});
+
+    //make that gayness global
+    window.theApp = theApp;
+    window.$$ = Framework7.$;
+
+    // We need to use custom DOM library, let's save it to $$ variable:
+    var $$ = Framework7.$;
+
     app.Start();
 
     document.onkeyup=function(e) {

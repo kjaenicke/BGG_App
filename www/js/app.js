@@ -11,15 +11,15 @@ define(['Backbone',
   var app = {
     Start: function(){
       // Initialize app and store it to theApp variable for futher access to its methods
-      //the app was FAT
-      var theApp = new Framework7({});
-
-      //make that gayness global
-      window.theApp = theApp;
-      window.$$ = Framework7.$;
-
-      // We need to use custom DOM library, let's save it to $$ variable:
-      var $$ = Framework7.$;
+      // //the app was FAT
+      // var theApp = new Framework7({});
+      //
+      // //make that gayness global
+      // window.theApp = theApp;
+      // window.$$ = Framework7.$;
+      //
+      // // We need to use custom DOM library, let's save it to $$ variable:
+      // var $$ = Framework7.$;
 
       // Add view
       var mainView = theApp.addView('.view-main', {

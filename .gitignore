@@ -7,3 +7,37 @@ npm-debug.log
 platforms
 plugins
 www/bower_dist
+graphics/icons/App Icon [Squared]/AppIcon29x29.png
+graphics/icons/App Icon [Squared]/AppIcon29x29@2x.png
+graphics/icons/App Icon [Squared]/AppIcon40x40.png
+graphics/icons/App Icon [Squared]/AppIcon40x40@2x.png
+graphics/icons/App Icon [Squared]/AppIcon50x50.png
+graphics/icons/App Icon [Squared]/AppIcon50x50@2x.png
+graphics/icons/App Icon [Squared]/AppIcon57x57.png
+graphics/icons/App Icon [Squared]/AppIcon57x57@2x.png
+graphics/icons/App Icon [Squared]/AppIcon60x60.png
+graphics/icons/App Icon [Squared]/AppIcon60x60@2x.png
+graphics/icons/App Icon [Squared]/AppIcon72x72.png
+graphics/icons/App Icon [Squared]/AppIcon72x72@2x.png
+graphics/icons/App Icon [Squared]/AppIcon76x76.png
+graphics/icons/App Icon [Squared]/AppIcon76x76@2x.png
+graphics/icons/App Icon [Squared]/iTunesArtwork.png
+graphics/icons/App Icon [Squared]/iTunesArtwork@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon29x29.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon29x29@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon40x40.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon40x40@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon50x50.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon50x50@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon57x57.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon57x57@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon60x60.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon60x60@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon72x72.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon72x72@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon76x76.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/AppIcon76x76@2x.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/iTunesArtwork.png
+graphics/icons/App Icon [Squared]/App Icon [Squared]/iTunesArtwork@2x.png
+*.png
+*.min.css
