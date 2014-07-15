@@ -1,5 +1,5 @@
-define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/bookmark', 'js/models/game', 'js/views/gameDetail'],
-  function(Backbone, Marionette, GameView, template, GameModel, DetailedGameView){
+define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/bookmark', 'hbs!templates/no-bookmarks', 'js/models/game', 'js/views/gameDetail'],
+  function(Backbone, Marionette, GameView, template, noBookmarksTemplate, GameModel, DetailedGameView){
 
     var BookmarkItem = Backbone.Marionette.ItemView.extend({
       tagName: 'li',
@@ -45,10 +45,18 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/bookmark', 'js
         }
     });
 
-    var RecentSearchesView = Backbone.Marionette.CollectionView.extend({
+    var NoBookmarksView = Backbone.Marionette.ItemView.extend({
+      render: function(){
+        this.$el.html(noBookmarksTemplate({ NO_RESULTS: 'No bookmarks found.' }));
+        return this;
+      }
+    });
+
+    var BookmarkView = Backbone.Marionette.CollectionView.extend({
         itemView: BookmarkItem,
+        emptyView: NoBookmarksView,
         tagName: 'ul'
     });
 
-    return RecentSearchesView;
+    return BookmarkView;
 });

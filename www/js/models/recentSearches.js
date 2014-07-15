@@ -4,7 +4,7 @@ define(['Backbone'],
     //COLLECTION OF MOST ACTIVE GAMES
     var RecentSearchesCollection = Backbone.Collection.extend({
       fetch: function(options){
-        var recentItems = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : [];
+        var recentItems = window.localStorage.recentSearches ? JSON.parse(window.localStorage.recentSearches) : new Backbone.Collection();
         recentItems = _.uniq(recentItems);
         var gameObjects = [];
 
@@ -13,7 +13,7 @@ define(['Backbone'],
          });
 
         this.reset(gameObjects);
-        options.success(this.models);
+        options.success(this.models || {});
       }
     });
 
