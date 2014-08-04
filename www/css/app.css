@@ -115,3 +115,9 @@ div.list-block .item-after {
 div.center.sliding {
   min-width: 60px;
 }
+
+.no-comments {
+  margin:0px auto;
+  width:150px;
+  margin-top: 10%
+}

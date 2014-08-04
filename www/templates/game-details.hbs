@@ -319,23 +319,27 @@
     </div>
 
     <div id="tab-3" class="tab">
+      {{#if comments}}
       <div class="list-block media-list search-box">
         <ul>
-          {{#each comments}}
-          <li>
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title-row">
-                  <div class="item-title">By: {{ this.author }}</div>
-                  <div class="item-after">Rating: {{ this.rating }} <i class="fa fa-linefix fa-star fa-fw"></i></div>
+            {{#each comments}}
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title-row">
+                    <div class="item-title">By: {{ this.author }}</div>
+                    <div class="item-after">Rating: {{ this.rating }} <i class="fa fa-linefix fa-star fa-fw"></i></div>
+                  </div>
+                  <div class="item-text multiline">{{ this.text }}</div>
                 </div>
-                <div class="item-text multiline">{{ this.text }}</div>
               </div>
-            </div>
-          </li>
-          {{/each}}
+            </li>
+            {{/each}}
         </ul>
       </div>
+      {{else}}
+      <div class="no-comments">No Comments Found</div>
+    {{/if}}
     </div>
 
     <div id="tab-4" class="tab">
