@@ -29,22 +29,29 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details',
 
         self.photoCollection = new PhotoCollection({ id: self.model.get('id') });
         self.photoCollection.fetch({ success: function(){
-          var photoBrowserPhotos = [];
 
-          for(var i = 0; i < self.photoCollection.models.length; i++){
-            photoBrowserPhotos.push(self.photoCollection.models[i].get('url').replace('_t.jpg', '_md.jpg'));
+          if(self.photoCollection.models.length > 0){
+            var photoBrowserPhotos = [];
+
+            for(var i = 0; i < self.photoCollection.models.length; i++){
+              photoBrowserPhotos.push(self.photoCollection.models[i].get('url').replace('_t.jpg', '_md.jpg'));
+            }
+
+            self.photoBrowserStandalone = null;
+            self.photoBrowserStandalone = theApp.photoBrowser({
+                photos: photoBrowserPhotos
+            });
+
+            $('.photoGallery').on('click', function(){
+              self.photoBrowserStandalone.open();
+            });
+
+            $('.photoGallery').removeClass('muted');
           }
-
-          self.photoBrowserStandalone = null;
-          self.photoBrowserStandalone = theApp.photoBrowser({
-              photos: photoBrowserPhotos
-          });
-
-          $('.photoGallery').on('click', function(){
-            self.photoBrowserStandalone.open();
-          });
-
-          $('.photoGallery').removeClass('muted');
+          else {
+            $('.photoGallery span').html('No Images Found');
+            $('.photoGallery').removeClass('muted');
+          }
         }});
       },
       toggleBookmark: function(){
