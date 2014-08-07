@@ -1,5 +1,17 @@
-define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details', 'js/models/photoCollection'],
-  function(Backbone, Marionette, GameView, template, PhotoCollection){
+define(['Backbone',
+        'Marionette',
+        'js/views/game',
+        'js/views/forum-list',
+        'hbs!templates/game-details',
+        'js/models/photoCollection',
+        'js/models/forumCollection'],
+function(Backbone,
+        Marionette,
+        GameView,
+        ForumList,
+        template,
+        PhotoCollection,
+        ForumCollection){
 
     var GameDetailView = Backbone.Marionette.ItemView.extend({
       initialize: function(options){
@@ -17,6 +29,7 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details',
         window.modelOutput = this.model;
         this.el = template(this.model.toJSON());
         this.fetchImages();
+        this.fetchForums();
 
         $('.bookmark').on('click', function(){
           self.toggleBookmark();
@@ -53,6 +66,20 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/game-details',
             $('.photoGallery').removeClass('muted');
           }
         }});
+      },
+      fetchForums: function(){
+        var self = this;
+        setTimeout(function(){
+          var forumCollection = new ForumCollection();
+          forumCollection.gameId = self.model.get('id');
+          forumCollection.fetch({
+            success: function(){
+              var forumListView = new ForumList({ collection: forumCollection});
+              forumListView.render();
+              $('.forum-list').html(forumListView.el);
+            }
+          });
+        }, 500);
       },
       toggleBookmark: function(){
         var bookmarks;
