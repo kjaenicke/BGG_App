@@ -1,4 +1,4 @@
-define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/bookmark', 'hbs!templates/no-bookmarks', 'js/models/game', 'js/views/gameDetail'],
+define(['Backbone', 'Marionette', 'gameView', 'hbs!templates/bookmark', 'hbs!templates/no-bookmarks', 'gameModel', 'gameDetail'],
   function(Backbone, Marionette, GameView, template, noBookmarksTemplate, GameModel, DetailedGameView){
 
     var BookmarkItem = Backbone.Marionette.ItemView.extend({

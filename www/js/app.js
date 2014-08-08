@@ -1,25 +1,41 @@
 define(['Backbone',
         'Marionette',
-        'js/views/main-layout',
-        'js/views/search-layout',
-        'js/views/recentSearches',
-        'js/models/recentSearches',
-        'js/models/bookmarksCollection',
-        'js/views/bookmarks'],
+        'main-layout',
+        'search-layout',
+        'recentSearchesView',
+        'recentSearchesModel',
+        'bookmarksCollection',
+        'bookmarks'],
   function(Backbone, Marionette, MainLayout, SearchLayout, RecentSearchView, RecentSearchesModel, BookmarksCollection, BookmarksView){
 
   var app = {
     Start: function(){
       // Initialize app and store it to theApp variable for futher access to its methods
-      // //the app was FAT
-      // var theApp = new Framework7({});
-      //
-      // //make that gayness global
-      // window.theApp = theApp;
-      // window.$$ = Framework7.$;
-      //
-      // // We need to use custom DOM library, let's save it to $$ variable:
-      // var $$ = Framework7.$;
+      if (!/(iPad|iPhone|iPod)/g.test( navigator.userAgent )){
+          $('.modal.modal-no-buttons.modal-in').remove();
+          $('.modal-overlay.modal-overlay-visible').remove();
+      }
+      setTimeout(function () {
+        $('.modal.modal-no-buttons.modal-in').remove();
+        $('.modal-overlay.modal-overlay-visible').remove();
+      }, 2000);
+
+      var theApp = new Framework7({});
+
+      //make that gayness global
+      window.theApp = theApp;
+      window.$$ = Framework7.$;
+      // We need to use custom DOM library, let's save it to $$ variable:
+      var $$ = Framework7.$;
+
+      app.Start();
+
+      document.onkeyup=function(e) {
+        if(e.which == 13){
+          $('#search_text').blur();
+          return false;
+        }
+      };
 
       // Add view
       var mainView = theApp.addView('.view-main', {

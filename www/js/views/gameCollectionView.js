@@ -1,4 +1,4 @@
-define(['Backbone', 'Marionette', 'js/views/game'],
+define(['Backbone', 'Marionette', 'gameView'],
   function(Backbone, Marionette, GameView){
 
     var GameCollectionView = Backbone.Marionette.CollectionView.extend({

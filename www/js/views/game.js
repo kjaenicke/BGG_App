@@ -1,8 +1,8 @@
 define(['Backbone',
         'Marionette',
         'hbs!templates/game-simple',
-        'js/models/game',
-        'js/views/gameDetail'],
+        'gameModel',
+        'gameDetail'],
   function(Backbone, Marionette, template, GameModel, DetailedGameView){
 
   var GameView = Backbone.Marionette.ItemView.extend({

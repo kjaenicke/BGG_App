@@ -1,4 +1,4 @@
-define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameCollectionView', 'js/models/gameCollection'],
+define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'gameCollectionView', 'gameCollection'],
   function(Backbone, Marionette, Template, GameCollectionView, GameCollection){
 
     var SearchLayout = Backbone.Marionette.Layout.extend({
