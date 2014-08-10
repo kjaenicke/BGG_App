@@ -3,7 +3,7 @@ define(['Backbone', 'gameModel'],
 
     //COLLECTION OF PHOTOS
     var PhotoCollection = Backbone.Collection.extend({
-      baseUrl: 'http://bgg-middleware.herokuapp.com/gameImages?id=',
+      baseUrl: 'http://bgg-middleware.azurewebsites.net/gameImages?id=',
       initialize: function(options){
         if(options.id){
           this.id = options.id;
