@@ -9,3 +9,4 @@ plugins
 www/bower_dist
 *.png
 *.min.css
+*.min.js

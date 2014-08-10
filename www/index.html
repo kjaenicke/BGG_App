@@ -12,7 +12,7 @@ require.config({
     underscore  : 'bower_dist/underscore/underscore',
     handlebars  : 'bower_dist/handlebars',
     hbs         : 'bower_dist/require-handlebars-plugin/hbs',
-    Framework7  : 'bower_dist/f7/framework7.min'
+    Framework7  : 'bower_dist/f7/framework7'
   },
   shim: {
     underscore: {
@@ -143,9 +143,11 @@ require.config({
     setTimeout(function () {
       $('.modal.modal-no-buttons.modal-in').remove();
       $('.modal-overlay.modal-overlay-visible').remove();
-    }, 2000);
+    }, 1000);
 
-    var theApp = new Framework7({});
+    var theApp = new Framework7({
+      modalTitle: "iBGG"
+    });
 
     //make that gayness global
     window.theApp = theApp;
