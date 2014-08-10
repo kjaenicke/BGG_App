@@ -121,3 +121,7 @@ div.center.sliding {
   width:150px;
   margin-top: 10%
 }
+
+.thread-details-body img{
+  max-width: 100%;
+}
