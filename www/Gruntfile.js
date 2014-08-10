@@ -71,14 +71,7 @@ module.exports = function(grunt) {
     },
     clean: {
       build: ['bower_dist'],
-      release: ['dist/bower_components',
-                // 'dist/bower_dist',
-                'dist/css/app.css',
-                'dist/css/ico.css',
-                'dist/css/index.css',
-                'dist/js/models',
-                'dist/js/views',
-                'dist/templates']
+      release: ['bower_components']
     },
     cssmin: {
       minify: {
@@ -93,32 +86,7 @@ module.exports = function(grunt) {
           'css/compile.min.css': ['css/ico.min.css','css/index.min.css','css/app.min.css']
         }
       }
-    },
-    requirejs: {
-        combine: {
-          options: {
-            baseUrl: './',
-            dir: './dist/',
-            mainConfigFile: './require-config.js',
-            optimize: 'uglify',
-            uglify: {
-                toplevel: true,
-                ascii_only: true,
-                beautify: false,
-                max_line_length: 1000,
-                no_mangle: true
-            },
-            preserveLicenseComments: false,
-            optimizeCss: 'none',
-            skipDirOptimize: true,
-            modules:[
-              { name: './js/app' },
-              { name: './js/index'}
-            ]
-          },
-          logLevel: 0
-        }
-      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -126,10 +94,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   grunt.registerTask('default', ['cssmin', 'copy', 'jshint']);
   grunt.registerTask('jscopy', 'copy');
-  grunt.registerTask('release', ['clean:build', 'cssmin', 'copy', 'jshint', 'requirejs','clean:release']);
+  grunt.registerTask('release', ['clean:build', 'cssmin', 'copy', 'clean:release', 'jshint']);
 
 };

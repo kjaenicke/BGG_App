@@ -1,4 +1,4 @@
-define(['Backbone', 'Marionette', 'gameView', 'hbs!templates/recent-search', 'hbs!templates/no-recent-search'],
+define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/recent-search', 'hbs!templates/no-recent-search'],
   function(Backbone, Marionette, GameView, template, noRecentSearchesTemplate){
 
     var RecentSearchItem = Backbone.Marionette.ItemView.extend({

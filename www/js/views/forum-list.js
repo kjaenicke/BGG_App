@@ -1,4 +1,4 @@
-define(['Backbone', 'Marionette', 'hbs!templates/forum', 'threadCollection', 'thread-list'],
+define(['Backbone', 'Marionette', 'hbs!templates/forum', 'js/models/threadCollection', 'js/views/thread-list'],
   function(Backbone, Marionette, forumTemplate, ThreadCollection, ThreadListView){
 
     var ForumView = Backbone.Marionette.ItemView.extend({

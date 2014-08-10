@@ -1,4 +1,4 @@
-define(['Backbone', 'gameModel'],
+define(['Backbone', 'js/models/game'],
   function(Backbone, GameModel){
 
     //COLLECTION OF GAMES
