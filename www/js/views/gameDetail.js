@@ -16,7 +16,7 @@ function(Backbone,
     var GameDetailView = Backbone.Marionette.ItemView.extend({
       initialize: function(options){
         this.model = this.options.model;
-        _.bindAll(this, 'fetchImages', 'toggleBookmark');
+        _.bindAll(this, 'fetchImages', 'toggleBookmark', 'shareGame');
         this.model.setBookMarkStatus();
 
         if(this.model.get('isBookmarked')){
@@ -33,6 +33,10 @@ function(Backbone,
 
         $('.bookmark').on('click', function(){
           self.toggleBookmark();
+        });
+
+        $('.share-game').on('click', function(){
+          self.shareGame();
         });
 
         return this;
@@ -109,6 +113,25 @@ function(Backbone,
           window.localStorage.bookmarks = JSON.stringify(bookmarks);
           return;
         }
+      },
+      shareGame: function(){
+        console.log('Share Game');
+
+        var self = this;
+        theApp.actions(
+        [
+          [
+            {text:'Open in BGG.com', onClick:function(){
+              console.log('Opening ' + self.model.get('title') + ' in BGG');
+            }},
+          ],
+          [{
+              text: 'Cancel',
+              bold: true
+          }]
+        ]);
+
+        console.log('End Share Game');
       }
     });
 
