@@ -327,7 +327,14 @@
                 <div class="item-inner">
                   <div class="item-title-row">
                     <div class="item-title">By: {{ this.author }}</div>
-                    <div class="item-after">Rating: {{ this.rating }} <i class="fa fa-linefix fa-star fa-fw"></i></div>
+                    <div class="item-after">
+                      {{#times this.rating }}
+                        <i class="fa fa-linefix fa-star fa-fw"></i>
+                      {{/times}}
+                      {{#ifRound this.rating }}
+                        <i class="fa fa-linefix fa-star-half-o fa-fw"></i>
+                      {{/ifRound}}
+                    </div>
                   </div>
                   <div class="item-text multiline">{{ this.text }}</div>
                 </div>

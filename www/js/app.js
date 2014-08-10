@@ -36,7 +36,7 @@ define(['Backbone',
         var page = e.detail.page;
       });
 
-    $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
+      $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
         var recentList = $('.search-box');
 
         var recentSearchesModel = new RecentSearchesModel();

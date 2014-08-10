@@ -99,7 +99,7 @@ span.link {
 div.item-text.multiline {
   display: block;
   text-transform: none;
-  min-height: 42px;
+  /*min-height: 42px;*/
   height: auto;
   color: #717171;
 }
@@ -124,4 +124,12 @@ div.center.sliding {
 
 .thread-details-body img{
   max-width: 100%;
+}
+
+div.accordion-list{
+  margin-top: 0;
+}
+
+.thread-details-title {
+  max-width: 60%;
 }
