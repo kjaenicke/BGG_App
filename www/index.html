@@ -51,6 +51,8 @@ require.config({
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/app.css"> -->
 <link rel="stylesheet" href="css/compile.min.css">
+<!-- <script src="cordova.js"></script> -->
+<!-- <script src="cordova_plugins.js"></script> -->
 </head>
 <body>
   <!-- Status bar overlay for full screen mode (PhoneGap) -->
@@ -112,7 +114,8 @@ require.config({
         <div data-page="index" class="page">
           <!-- Scrollable page content -->
           <div class="page-content" style="background-color: lightblue;">
-            <h1 style="font-size: 7em; font-weight: bold;">Whoa!</h1>
+            <h1 style="font-size: 7em; font-weight: bold;"><a href="#" onclick="window.open('http://google.com', '_system')">Whoa!</a></h1>
+
           </div>
         </div>
       </div>

@@ -122,7 +122,11 @@ function(Backbone,
         [
           [
             {text:'Open in BGG.com', onClick:function(){
-              console.log('Opening ' + self.model.get('title') + ' in BGG');
+              var gameType = 'boardgame';
+              if (!self.model.get('boardgamerank')){
+                gameType = 'videogame';
+              }
+              window.open('http://boardgamegeek.com/'+gameType+'/'+self.model.get('id'), '_system');
             }},
           ],
           [{
