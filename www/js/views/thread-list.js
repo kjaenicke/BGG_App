@@ -1,43 +1,65 @@
-define(['Backbone', 'Marionette', 'hbs!templates/thread', 'js/models/threadDetail', 'js/views/thread-detail'],
-  function(Backbone, Marionette, template, ThreadDetailModel, ThreadDetailListView){
+define(['Backbone',
+        'Marionette',
+        'hbs!templates/thread-list',
+        'hbs!templates/thread',
+        'hbs!templates/thread-detail',
+        'js/models/threadDetail',
+        'js/views/thread-detail'],
+function(Backbone,
+         Marionette,
+         threadListTemplate,
+         threadTemplate,
+         threadDetailTemplate,
+         ThreadDetailModel,
+         ThreadDetailListView){
 
-    var ThreadView = Backbone.Marionette.ItemView.extend({
-      tagName: 'li',
-      ui: {
-        threadItem: '.item-content'
-      },
-      events : {
-        'click @ui.threadItem' : 'showThreadDetails'
-      },
-      render: function(){
-          var self = this;
-          $(this.el).html(template(this.model.toJSON()));
-          return this;
-      },
-      showThreadDetails: function(){
-        var self = this;
-        theApp.views[0].loadPage("thread-detail.html");
+          var ThreadView = Backbone.Marionette.ItemView.extend({
+            tagName: 'li',
+            className: 'item-content-thread',
+            ui: {
+              threadItem: '.item-content'
+            },
+            events : {
+              'click @ui.threadItem' : 'showThreadDetails'
+            },
+            render: function(){
+                var self = this;
+                $(this.el).html(threadTemplate(this.model.toJSON()));
+                $(this.el).attr('data-id', this.model.get('id'));
+                return this;
+            },
+            showThreadDetails: function(){
+              this.$el.trigger('showThreadDetails', [this.model]);
+            }
+          });
 
-        showNewIndicator();
-        self.threadDetail = new ThreadDetailModel();
-        self.threadDetail.threadId = self.model.get('id');
-        self.threadDetail.fetch({
-          success: function(){
-            //create html for details view
-            self.threadDetailListView = new ThreadDetailListView({ model: self.threadDetail });
-            self.threadDetailListView.render();
-            $('.thread-detail-list').html(self.threadDetailListView.el);
-            $('.thread-details-title').html(self.threadDetail.get('subject')[0]);
-            hideNewIndicator();
-          }
-        });
-      }
-    });
+          var ThreadListView = Backbone.Marionette.CompositeView.extend({
+            itemView: ThreadView,
+            itemViewContainer: '.thread-list-container',
+            template: threadListTemplate,
+            events: {
+              'showThreadDetails': 'showThreadDetails'
+            },
+            className: 'list-block media-list',
+            showThreadDetails: function(event, thread){
+              var self = this;
+              showNewIndicator();
+              self.threadDetail = new ThreadDetailModel();
+              self.threadDetail.threadId = thread.get('id');
+              self.threadDetail.fetch({
+                success: function(){
+                  //create html for details view
+                  self.threadDetailListView = new ThreadDetailListView({ model: self.threadDetail });
+                  self.threadDetailListView.render();
+                  $('.thread-list').hide();
+                  $('.thread-item-detail').html(self.threadDetailListView.el);
+                  $('.thread-item-detail').show();
+                  hideNewIndicator();
+                }
+              });
 
-    var ThreadListView = Backbone.Marionette.CollectionView.extend({
-      itemView: ThreadView,
-      tagName: 'ul'
-    });
+            }
+          });
 
-    return ThreadListView;
+          return ThreadListView;
 });
