@@ -33,9 +33,14 @@ function(Backbone,
             }
           });
 
+          var EmptyThreadListView = Backbone.Marionette.ItemView.extend({
+            template: _.template('<div style="text-align: center;">No threads found</div>')
+          });
+
           var ThreadListView = Backbone.Marionette.CompositeView.extend({
             itemView: ThreadView,
             itemViewContainer: '.thread-list-container',
+            emptyView: EmptyThreadListView,
             template: threadListTemplate,
             events: {
               'showThreadDetails': 'showThreadDetails'
