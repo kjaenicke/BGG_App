@@ -11,3 +11,4 @@ www/bower_dist
 *.min.css
 *.min.js
 compile.min.css
+bgg-built.js
