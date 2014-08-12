@@ -45,11 +45,13 @@
 }
 
 div[class*="col-"] {
-  background: #FFF;
+  background: lightblue;
   text-align: center;
   color: #000;
-  border: 1px solid #DDD;
+  /*border: 1px solid #DDD;*/
   padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 div[class*="col-"].empty {
@@ -140,4 +142,36 @@ div.accordion-list, .forum-page .media-list{
 
 li.accordion-item.accordion-item-expanded {
   border-bottom: 1px solid lightgray;
+}
+
+#meeple {
+  width: 100%;
+  margin: 10 auto;
+  display: block;
+}
+
+/*iPhone <5*/
+@media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px)
+  and (orientation : portrait) {
+    .square {
+        background: #000;
+        height: 40vw;
+    }
+    .min-top-margin {
+      margin-top: 10px;
+    }
+}
+
+/* iPhone5+ */
+@media
+  only screen and (min-device-height: 481px){
+    .square {
+        background: #000;
+        height: 50vw !important;
+    }
+    .min-top-margin {
+      margin-top: 20px;
+    }
 }
