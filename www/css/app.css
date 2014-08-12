@@ -45,7 +45,7 @@
 }
 
 div[class*="col-"] {
-  background: lightblue;
+  background: #f7f7f8;
   text-align: center;
   color: #000;
   /*border: 1px solid #DDD;*/
@@ -150,13 +150,27 @@ li.accordion-item.accordion-item-expanded {
   display: block;
 }
 
+.square {
+  border-radius: 10px;
+  border: 1px solid darkgray;
+  -webkit-box-shadow: inset 0 1px 0 0 lightgray, 0 1px 2px 0 #b3b3b3;
+  text-shadow: 0 -1px 1px #3D9F9C;
+  font-size: 3em;
+  word-wrap: break-word;
+}
+
+.square:active{
+  position: relative;
+  top: 2px;
+  left: 1px;
+}
+
 /*iPhone <5*/
 @media only screen
   and (min-device-width : 320px)
   and (max-device-width : 480px)
   and (orientation : portrait) {
     .square {
-        background: #000;
         height: 40vw;
     }
     .min-top-margin {
@@ -168,7 +182,6 @@ li.accordion-item.accordion-item-expanded {
 @media
   only screen and (min-device-height: 481px){
     .square {
-        background: #000;
         height: 50vw !important;
     }
     .min-top-margin {
