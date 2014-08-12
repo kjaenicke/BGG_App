@@ -11,6 +11,8 @@ define(['Backbone',
   var app = {
     Start: function(){
 
+      document.addEventListener('deviceready', this.onDeviceReady, false);
+
       // Add view
       var mainView = theApp.addView('.view-main', {
         // Because we want to use dynamic navbar, we need to enable it for this view:
@@ -70,6 +72,10 @@ define(['Backbone',
       hideNewIndicator = function () {
           $('.preloader-indicator-overlay, .preloader-indicator-modal').remove();
       };
+    },
+    onDeviceReady: function() {
+      console.info('BGG Device Ready');
+      // app.receivedEvent('deviceready');
     }
   };
 

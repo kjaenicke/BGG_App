@@ -48,17 +48,17 @@ module.exports = function(grunt) {
             dest: 'bower_dist/backbone',
             filter: 'isFile', flatten: true
           },
-          // {
-          //   expand: true,
-          //   src: [
-          //     'bower_components/framework7/dist/css/framework7.min.css',
-          //     'bower_components/framework7/dist/css/framework7.css',
-          //     'bower_components/framework7/dist/js/framework7.min.js',
-          //     'bower_components/framework7/dist/js/framework7.js'
-          //   ],
-          //   dest: 'bower_dist/f7',
-          //   filter: 'isFile', flatten: true
-          // },
+          {
+            expand: true,
+            src: [
+              'bower_manual/framework7.min.css',
+              'bower_manual/framework7.css',
+              'bower_manual/framework7.min.js',
+              'bower_manual/framework7.js'
+            ],
+            dest: 'bower_dist/f7',
+            filter: 'isFile', flatten: true
+          },
           {
             expand: true,
             cwd: 'bower_components/fontawesome/',
@@ -69,7 +69,6 @@ module.exports = function(grunt) {
       },
       iosBuild: {
         files: [
-          // includes files within path and its sub-directories
           {expand: true, src: ['../www/**'], dest: '../platforms/ios/www/'},
         ]
       }
@@ -81,7 +80,22 @@ module.exports = function(grunt) {
       build: ['bower_dist'],
       iosBuild: [
         '../platforms/ios/www/bower_components',
-        '../platforms/ios/www/node_modules'
+        '../platforms/ios/www/bower_manual',
+        '../platforms/ios/www/node_modules',
+        '../platforms/ios/www/bower_dist/f7/framework7.js',
+        '../platforms/ios/www/bower_dist/f7/framework7.min.js',
+        '../platforms/ios/www/bower_dist/backbone',
+        '../platforms/ios/www/bower_dist/handlebars',
+        '../platforms/ios/www/bower_dist/jquery',
+        '../platforms/ios/www/bower_dist/marionette',
+        '../platforms/ios/www/bower_dist/require-handlebars-plugin',
+        '../platforms/ios/www/bower_dist/underscore',
+        '../platforms/ios/www/css/app.css',
+        '../platforms/ios/www/css/app.min.css',
+        '../platforms/ios/www/css/ico.css',
+        '../platforms/ios/www/css/ico.min.css',
+        '../platforms/ios/www/css/index.css',
+        '../platforms/ios/www/css/index.min.css'
       ]
     },
     cssmin: {
@@ -94,7 +108,11 @@ module.exports = function(grunt) {
       },
       combine: {
         files: {
-          'css/compile.min.css': ['css/ico.min.css','css/index.min.css','css/app.min.css']
+          'css/compile.min.css': [
+            'css/ico.min.css',
+            'css/index.min.css',
+            'css/app.min.css'
+          ]
         }
       }
     },

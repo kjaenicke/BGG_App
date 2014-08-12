@@ -19,7 +19,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "org.apache.cordova.device": "0.2.12-dev",
-    "org.apache.cordova.inappbrowser": "0.5.0"
+    "org.apache.cordova.inappbrowser": "0.5.1"
 }
 // BOTTOM OF METADATA
 });

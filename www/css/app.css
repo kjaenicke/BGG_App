@@ -130,6 +130,14 @@ div.accordion-list{
   margin-top: 0;
 }
 
+div.accordion-list, .forum-page .media-list{
+  margin-top: 0;
+}
+
 .thread-details-title {
   max-width: 60%;
+}
+
+li.accordion-item.accordion-item-expanded {
+  border-bottom: 1px solid lightgray;
 }
