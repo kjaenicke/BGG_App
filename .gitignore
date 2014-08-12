@@ -5,10 +5,10 @@ npm-debug.log
 
 ##
 platforms
-plugins
 www/bower_dist
 *.png
 *.min.css
 *.min.js
 compile.min.css
 bgg-built.js
+/plugins
