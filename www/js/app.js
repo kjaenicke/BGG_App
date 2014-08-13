@@ -19,9 +19,6 @@ define(['Backbone',
         dynamicNavbar: true
       });
 
-      // Now we need to run the code that will be executed only for About page.
-      // For this case we need to add event listener for "pageInit" event
-
       // Option 1. Using one 'pageInit' event handler for all pages (recommended way):
       $$(document).on('pageInit', function (e) {
         // Get page data from event data
@@ -64,6 +61,9 @@ define(['Backbone',
       searchLayout.render();
       $('.page-content .search_container').append(layout.el);
 
+      $('#developerFeedback').on('click', function(e){
+        window.open('mailto:info@example.com?subject=subject&cc=cc@example.com', '_system');
+      });
 
       showNewIndicator = function () {
           $('body').append('<div class="preloader-indicator-overlay"></div><div class="preloader-indicator-modal" style="padding: 15px;"><i class="fa fa-refresh fa-spin fa-inverse fa-3x"></i></div>');

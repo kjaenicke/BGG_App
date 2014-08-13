@@ -109,7 +109,7 @@ module.exports = function(grunt) {
       combine: {
         files: {
           'css/compile.min.css': [
-            'css/ico.min.css',
+            'css/ibgg.min.css',
             'css/index.min.css',
             'css/app.min.css'
           ]
