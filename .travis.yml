@@ -5,6 +5,6 @@ before_install:
   - "cd www"
   - "npm install -g grunt-cli"
 install: npm install
-before_script: grunt
+# before_script: grunt
 notifications:
   email: false
