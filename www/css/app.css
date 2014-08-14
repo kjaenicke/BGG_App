@@ -31,6 +31,10 @@
   line-height: inherit;
 }
 
+.fa.fa-sm {
+  font-size: .9em;
+}
+
 .recent-search .fa {
   color: #267bd8;
 }
