@@ -7,7 +7,7 @@
     "Shawn Hoffman"
   ],
   "scripts": {
-    "test": "grunt --verbose"
+    "test": "grunt travis --verbose"
   },
   "dependencies": {},
   "devDependencies": {
