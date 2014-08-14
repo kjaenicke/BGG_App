@@ -134,6 +134,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('default', ['cssmin', 'copy:main', 'jshint', 'shell']);
+  grunt.registerTask('travis', ['cssmin', 'copy:main', 'jshint']);
   grunt.registerTask('jscopy', 'copy');
   grunt.registerTask('release', ['clean:build', 'cssmin', 'copy:main', 'jshint', 'shell', 'copy:iosBuild', 'clean:iosBuild']);
 
