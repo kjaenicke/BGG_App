@@ -22,12 +22,14 @@ define(['Backbone',
       ui: {
         top100Icon        : '.top100-icon',
         hotBoardGamesIcon : '.hotboardgames-icon',
-        featuredGameIcon  : '.featuredgame-icon'
+        featuredGameIcon  : '.featuredgame-icon',
+        devFeedback       : '.devFeedback'
       },
       events: {
         'click @ui.top100Icon'        : 'showTop100Games',
         'click @ui.hotBoardGamesIcon' : 'showHotBoardGames',
-        'click @ui.featuredGameIcon'  : 'showFeaturedGame'
+        'click @ui.featuredGameIcon'  : 'showFeaturedGame',
+        'click @ui.devFeedback'       : 'showDevFeedback'
       },
       showTop100Games: function(){
         var self = this;
@@ -97,6 +99,9 @@ define(['Backbone',
             theApp.views[0].loadPage("game.html");
             $('.game-page').html(self.detailedGameView.el);
           }
+      },
+      showDevFeedback: function(){
+        window.open('mailto:shawn.p.hoffman@gmail.com?subject=BGG%20Dev%20Feedback', '_system');
       }
     });
 

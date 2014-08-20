@@ -25,6 +25,23 @@ define(['Backbone',
         var page = e.detail.page;
       });
 
+      $('.panel').on('touchmove', function (f) {
+        f.preventDefault();
+      });
+
+      $('.main-page').on('touchmove', function (f) {
+        f.preventDefault();
+      });
+      //HOME SCREEN
+      $$(document).on('pageAfterAnimation', '.page[data-page="index"]', function (e) {
+        $('.main-page').on('touchmove', function (f) {
+          f.preventDefault();
+        });
+        $('.panel').on('touchmove', function (f) {
+          f.preventDefault();
+        });
+      });
+
       //RECENT SEARCHES
       $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
         var recentList = $('.search-box');
@@ -70,10 +87,6 @@ define(['Backbone',
       searchLayout.render();
       $('.page-content .search_container').append(layout.el);
 
-      $('#developerFeedback').on('click', function(e){
-        window.open('mailto:info@example.com?subject=subject&cc=cc@example.com', '_system');
-      });
-
       showNewIndicator = function () {
           $('body').append('<div class="preloader-indicator-overlay"></div><div class="preloader-indicator-modal" style="padding: 15px;"><i class="fa fa-refresh fa-spin fa-inverse fa-3x"></i></div>');
       };
@@ -84,7 +97,6 @@ define(['Backbone',
     },
     onDeviceReady: function() {
       console.info('BGG Device Ready');
-      // app.receivedEvent('deviceready');
     }
   };
 

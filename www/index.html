@@ -17,8 +17,8 @@
 <!-- END CSS -->
 
 <!-- CORDOVA SCRIPTS (UNCOMMENT FOR RELEASE) -->
-<!-- <script src="cordova.js"></script> -->
-<!-- <script src="cordova_plugins.js"></script> -->
+<script src="cordova.js"></script>
+<script src="cordova_plugins.js"></script>
 <!-- END CORDOVA SCRIPTS -->
 
 <!--<script type="text/javascript" data-main="req" src="bower_dist/requirejs/require.js"></script>-->
@@ -26,7 +26,7 @@
   <script>
     require.config({
       paths: {
-        "main": "bgg-built"
+        "main" : "bgg-built"
       }
     });
     require(["main"]);
@@ -35,7 +35,7 @@
 </head>
 <body>
   <!-- Status bar overlay for full screen mode (PhoneGap) -->
-  <div class="statusbar-overlay"></div>
+  <!-- <div class="statusbar-overlay"></div> -->
   <!-- Panels overlay-->
   <div class="panel-overlay"></div>
   <!-- Left panel with reveal effect-->
@@ -88,7 +88,7 @@
       </div>
       <div class="pages navbar-through">
         <!-- Page, "data-page" contains page name -->
-        <div data-page="index" class="page">
+        <div data-page="index" class="page main-page">
           <!-- Scrollable page content -->
           <div class="page-content page-home" style="background-color: lightgray;">
           </div>
