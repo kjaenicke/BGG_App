@@ -25,6 +25,7 @@ define(['Backbone',
         var page = e.detail.page;
       });
 
+      //RECENT SEARCHES
       $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
         var recentList = $('.search-box');
 
@@ -38,6 +39,7 @@ define(['Backbone',
         });
       });
 
+      //BOOKMARKS
       $$(document).on('pageAfterAnimation', '.page[data-page="bookmarks"]', function (e) {
         var recentList = $('.search-box');
 
@@ -51,10 +53,17 @@ define(['Backbone',
         });
       });
 
+      $$(document).on('pageAfterAnimation', '.page[data-page="index"]', function(e){
+        //create main layout
+        var layout = new MainLayout();
+        layout.render();
+        $('.page-home').html(layout.el);
+      });
+
       //create main layout
       var layout = new MainLayout();
       layout.render();
-      //$('.page-content').append(layout.el);
+      $('.page-home').html(layout.el);
 
       //create search layout
       var searchLayout = new SearchLayout();
