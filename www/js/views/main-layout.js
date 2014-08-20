@@ -3,9 +3,19 @@ define(['Backbone',
         'hbs!templates/main-layout',
         'js/models/top100GamesCollection',
         'js/models/hotGamesCollection',
+        'js/models/featuredGameModel',
         'js/views/top100Games',
-        'js/views/hotGames'],
-  function(Backbone, Marionette, Template, TopGamesCollection, HotGamesCollection, TopGamesView, HotGamesView){
+        'js/views/hotGames',
+        'js/views/gameDetail'],
+  function(Backbone,
+           Marionette,
+           Template,
+           TopGamesCollection,
+           HotGamesCollection,
+           FeaturedGameModel,
+           TopGamesView,
+           HotGamesView,
+           DetailedGameView){
 
     var MainLayout = Backbone.Marionette.Layout.extend({
       template: Template(),
@@ -63,7 +73,31 @@ define(['Backbone',
           hideNewIndicator();
         }
       },
-      showFeaturedGame: function(){}
+      showFeaturedGame: function(){
+        var self = this;
+        //page load has to be here or it won't render correctly
+        theApp.views[0].loadPage("game.html");
+
+        // see if we've already fetch the deets on this Bee before we refetch it and waste time
+        if(!self.gameModel){
+          showNewIndicator();
+          self.gameModel = new FeaturedGameModel();
+            self.gameModel.fetch({ success: function(){
+              //create html for details view
+              self.detailedGameView = new DetailedGameView({ model: self.gameModel });
+              self.detailedGameView.render();
+
+              $('.game-page').html(self.detailedGameView.el);
+              hideNewIndicator();
+            }
+          });
+        }
+        else {
+            //create html for details view
+            theApp.views[0].loadPage("game.html");
+            $('.game-page').html(self.detailedGameView.el);
+          }
+      }
     });
 
     return MainLayout;
