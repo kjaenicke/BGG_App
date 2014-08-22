@@ -39,6 +39,10 @@ function(Backbone,
           self.shareGame();
         });
 
+        $('div.game-page').on('click', '.tab-link', function(){
+          $('.page-content').scrollTop(0);
+        });
+
         return this;
       },
       fetchImages: function(){
