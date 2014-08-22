@@ -1,12 +1,13 @@
 define(['Backbone',
         'Marionette',
+        'js/global-override',
         'js/views/main-layout',
         'js/views/search-layout',
         'js/views/recentSearches',
         'js/models/recentSearches',
         'js/models/bookmarksCollection',
         'js/views/bookmarks'],
-  function(Backbone, Marionette, MainLayout, SearchLayout, RecentSearchView, RecentSearchesModel, BookmarksCollection, BookmarksView){
+  function(Backbone, Marionette, GlobalOverride, MainLayout, SearchLayout, RecentSearchView, RecentSearchesModel, BookmarksCollection, BookmarksView){
 
   var app = {
     Start: function(){
