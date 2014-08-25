@@ -242,3 +242,25 @@ li.accordion-item.accordion-item-expanded {
 .square:active .ibgg-fire {
   color: #e67e22;
 }
+
+.thread-item-detail div.content-block {
+  text-transform: none !important;
+}
+
+.thread-item-detail div.content-block br+br {
+  display:none
+}
+
+div.quote {
+  background-color: #DDD;
+  padding: 5px 10px 10px 10px;
+  border-radius: 5px
+}
+
+p.thread-details-body, div.quotetitle p {
+  margin-top: 0 !important;
+}
+
+li.accordion-item a.item-link.item-content {
+  /*margin-bottom: -15px;*/
+}
