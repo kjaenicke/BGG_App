@@ -3,6 +3,7 @@ define(['Backbone',
         'js/views/game',
         'js/views/forum-list',
         'hbs!templates/game-details',
+        'hbs!templates/game-toolbar',
         'js/models/photoCollection',
         'js/models/forumCollection'],
 function(Backbone,
@@ -10,6 +11,7 @@ function(Backbone,
         GameView,
         ForumList,
         template,
+        toolbar,
         PhotoCollection,
         ForumCollection){
 
@@ -30,6 +32,8 @@ function(Backbone,
         this.el = template(this.model.toJSON());
         this.fetchImages();
         this.fetchForums();
+        
+        $('.view-main').append(toolbar());
 
         $('.bookmark').on('click', function(){
           self.toggleBookmark();
