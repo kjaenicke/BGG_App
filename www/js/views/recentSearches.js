@@ -1,5 +1,5 @@
-define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/recent-search', 'hbs!templates/no-recent-search'],
-  function(Backbone, Marionette, GameView, template, noRecentSearchesTemplate){
+define(['Backbone', 'Marionette', 'js/models/recentSearches', 'js/views/game', 'hbs!templates/recent-search', 'hbs!templates/no-recent-search'],
+  function(Backbone, Marionette, RecentSearchesModel, GameView, template, noRecentSearchesTemplate){
 
     var RecentSearchItem = Backbone.Marionette.ItemView.extend({
       ui: {
@@ -28,7 +28,20 @@ define(['Backbone', 'Marionette', 'js/views/game', 'hbs!templates/recent-search'
     var RecentSearchesView = Backbone.Marionette.CollectionView.extend({
         itemView: RecentSearchItem,
         emptyView: NoRecentSearchesView,
-        tagName: 'ul'
+        tagName: 'ul',
+        onRender: function(){
+          var self = this;
+          $('#clear-recent-searches').on('click', function(){
+            window.localStorage.removeItem('recentSearches');
+            self.recentSearchesModel = new RecentSearchesModel();
+            self.recentSearchesModel.fetch({
+              success: function(data){
+                  self.collection = new Backbone.Collection(data);
+                  self.render();
+              }
+            });
+          });
+        }
     });
 
     return RecentSearchesView;
