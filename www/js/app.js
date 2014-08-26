@@ -43,6 +43,11 @@ define(['Backbone',
         });
       });
 
+      //GAMES
+      $$(document).on('pageBeforeRemove', '.page[data-page="game"]', function(e) {
+        $('.toolbar').remove();
+      });
+
       //RECENT SEARCHES
       $$(document).on('pageAfterAnimation', '.page[data-page="recent-searches"]', function (e) {
         var recentList = $('.search-box');

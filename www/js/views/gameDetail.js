@@ -32,8 +32,11 @@ function(Backbone,
         this.el = template(this.model.toJSON());
         this.fetchImages();
         this.fetchForums();
-        
-        $('.view-main').append(toolbar());
+
+        if ($('.toolbar').length === 0){
+          console.log('appending');
+          $('.view-main').append(toolbar());
+        }
 
         $('.bookmark').on('click', function(){
           self.toggleBookmark();

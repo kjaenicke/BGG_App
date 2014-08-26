@@ -42,7 +42,15 @@ require(['js/app', 'jquery', 'Framework7'], function(app, $, $$){
   }, 1000);
 
   var theApp = new Framework7({
-    modalTitle: "iBGG"
+    modalTitle: "iBGG",
+    onPageBeforeAnimation: function (app, page) {
+      if (page.name !== 'game') {
+        $('.toolbar').hide();
+      }
+      else {
+        $('.toolbar').show();
+      }
+    }
   });
 
   //make that gayness global
