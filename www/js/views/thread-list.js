@@ -48,6 +48,19 @@ function(Backbone,
             className: 'list-block media-list',
             showThreadDetails: function(event, thread){
               var self = this;
+              window.localStorage.backToThread = 'true';
+
+              $('#forum-back-link').on('click', function(evt){
+                if(window.localStorage.backToThread === 'true'){
+                  evt.preventDefault();
+                  self.render();
+                  $('.thread-list').show();
+                  $('.thread-item-detail').hide();
+                  window.localStorage.backToThread = 'false';
+                  return false;
+                }
+              });
+
               showNewIndicator();
               self.threadDetail = new ThreadDetailModel();
               self.threadDetail.threadId = thread.get('id');
