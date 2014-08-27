@@ -1,0 +1,266 @@
+.list-block.search-box {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.content-block-title.search-results-title{
+	margin-top: 10px;
+}
+
+.fa-rpgitem:before{
+	content: "\f183";
+	color: #720076;
+}
+
+.fa-boardgame:before{
+	content: "\f091";
+	color: #267bd8;
+}
+
+.fa-videogame:before{
+	content: "\f11b";
+	color: #b20101;
+}
+
+.fa-boardgameexpansion:before{
+	content: "\f1e0";
+	color: #3ba501;
+}
+
+.bgg.bgg-linefix {
+	line-height: inherit;
+}
+
+.bgg.bgg-sm {
+	font-size: .9em;
+}
+
+.recent-search .fa {
+	color: #267bd8;
+}
+
+.panel {
+	background-color: #007aff;
+	/*color: white;*/
+}
+
+.panel .content-block-title, .panel p {
+	color: white;
+}
+
+div[class*="col-"] {
+	background: #f7f7f8;
+	text-align: center;
+	color: #000;
+	/*border: 1px solid #DDD;*/
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div[class*="col-"].empty {
+	background: none;
+	border: none;
+}
+
+div[class*="col-"] img {
+	max-width:100%;
+	max-height:100%;
+}
+
+.tab .content-block {
+	margin-top: 10px;
+}
+
+.search-results li:active{
+	background-color: #007aff;
+}
+
+.search-results li:active div.item-content .game-title,
+.search-results li:active div.item-content i.fa-boardgame,
+.search-results li:active div.item-content i.fa-rpgitem,
+.search-results li:active div.item-content i.fa-videogame,
+.search-results li:active div.item-content i.fa-boardgameexpansion {
+	color: #ffffff !important;
+}
+
+.multiline > div.item-title {
+	text-transform: none;
+	white-space: normal;
+}
+
+.item-inner.centered > img{
+	margin-left: auto;
+	margin-right: auto
+}
+
+.bgg-icon-2x {
+	font-size: 1.75em;
+}
+
+span.link {
+	color: #007aff;
+}
+
+div.item-text.multiline {
+	display: block;
+	text-transform: none;
+	/*min-height: 42px;*/
+	height: auto;
+	color: #717171;
+}
+
+div.list-block .item-after {
+	color: #000;
+}
+
+.muted{
+	background: #e0e0e0;
+}
+
+div.center.sliding {
+	min-width: 60px;
+}
+
+.no-comments {
+	margin:0px auto;
+	width:150px;
+	margin-top: 10%
+}
+
+.thread-details-body img{
+	max-width: 100%;
+}
+
+div.accordion-list{
+	margin-top: 0;
+}
+
+div.accordion-list, .forum-page .media-list{
+	margin-top: 0;
+}
+
+.thread-details-title {
+	max-width: 60%;
+}
+
+li.accordion-item.accordion-item-expanded {
+	border-bottom: 1px solid lightgray;
+}
+
+#meeple {
+	width: 100%;
+	margin: 10 auto;
+	display: block;
+}
+
+.square {
+	border-radius: 10px;
+	font-size: 1.2em;
+	word-wrap: break-word;
+
+	border: 1px solid #007aff;
+	color: #007aff;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	padding: 0 10px;
+	margin: 0;
+	position: relative;
+	overflow: hidden;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.square:active{
+	background:rgba(0,122,255,.15);
+}
+
+.square .bgg-icon {
+	font-size: 4em;
+	position: relative;
+	top: 5px;
+}
+
+.square:active .bgg-icon {
+	color: #007aff;
+}
+
+.square div{
+	position: absolute;
+	bottom: 5px;
+}
+
+/*iPhone <5*/
+@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px)
+	and (orientation : portrait) {
+		.square {
+				height: 40vw;
+		}
+		.min-top-margin {
+			margin-top: 10px;
+		}
+}
+
+/* iPhone5+ */
+@media
+	only screen and (min-device-height: 481px){
+		.square {
+				height: 50vw !important;
+		}
+		.min-top-margin {
+			margin-top: 20px;
+		}
+
+		.square .bgg-icon {
+			font-size: 5em;
+			top: 15px;
+		}
+		.square div{
+			bottom: 10px;
+		}
+}
+
+.square:active .bgg-star-fill {
+	color: #FFFF00 !important;
+}
+.square:active .bgg-phone {
+	color: #C0392B !important;
+}
+.square:active .bgg-stats {
+	color: #8e44ad !important;
+}
+.square:active .bgg-fire {
+	color: #e67e22;
+}
+
+.thread-item-detail div.content-block {
+	text-transform: none !important;
+}
+
+.thread-item-detail div.content-block br+br {
+	display:none
+}
+
+div.quote {
+	background-color: #DDD;
+	padding: 5px 10px 10px 10px;
+	border-radius: 5px
+}
+
+p.thread-details-body, div.quotetitle p {
+	margin-top: 0 !important;
+}
+
+li.accordion-item a.item-link.item-content {
+	/*margin-bottom: -15px;*/
+}

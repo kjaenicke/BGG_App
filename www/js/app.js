@@ -94,7 +94,7 @@ define(['Backbone',
       $('.page-content .search_container').append(layout.el);
 
       showNewIndicator = function () {
-          $('body').append('<div class="preloader-indicator-overlay"></div><div class="preloader-indicator-modal" style="padding: 15px;"><i class="fa fa-refresh fa-spin fa-inverse fa-3x"></i></div>');
+          $('body').append('<div class="preloader-indicator-overlay"></div><div class="preloader-indicator-modal" style="padding: 15px;"><i class="bgg-icon bgg-icon-loading bgg-icon-spin bgg-icon-inverse bgg-icon-3x"></i></div>');
       };
 
       hideNewIndicator = function () {

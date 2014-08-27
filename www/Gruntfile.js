@@ -58,12 +58,6 @@ module.exports = function(grunt) {
             ],
             dest: 'bower_dist/f7',
             filter: 'isFile', flatten: true
-          },
-          {
-            expand: true,
-            cwd: 'bower_components/fontawesome/',
-            src: ['css/font-awesome.min.css', 'fonts/*'],
-            dest: 'bower_dist/fontawesome'
           }
         ]
       },
@@ -90,12 +84,11 @@ module.exports = function(grunt) {
         '../platforms/ios/www/bower_dist/marionette',
         '../platforms/ios/www/bower_dist/require-handlebars-plugin',
         '../platforms/ios/www/bower_dist/underscore',
-        '../platforms/ios/www/css/app.css',
-        '../platforms/ios/www/css/app.min.css',
-        '../platforms/ios/www/css/ico.css',
-        '../platforms/ios/www/css/ico.min.css',
-        '../platforms/ios/www/css/index.css',
-        '../platforms/ios/www/css/index.min.css'
+        '../platforms/ios/www/css/*.css',
+        '../platforms/ios/www/css/min/*.css'
+      ],
+      local: [
+        'css/min/*.css'
       ]
     },
     cssmin: {
@@ -103,15 +96,13 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'css/',
         src: ['*.css', '!*.min.css'],
-        dest: 'css/',
+        dest: 'css/min/',
         ext: '.min.css'
       },
       combine: {
         files: {
-          'css/compile.min.css': [
-            'css/ibgg.min.css',
-            'css/index.min.css',
-            'css/app.min.css'
+          'css/dist/compile.min.css': [
+            'css/min/*.css',
           ]
         }
       }
@@ -133,7 +124,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-shell');
 
-  grunt.registerTask('default', ['cssmin', 'copy:main', 'jshint', 'shell']);
+  grunt.registerTask('default', ['cssmin', 'copy:main', 'clean:local', 'jshint']);
+  grunt.registerTask('r', ['shell']);
   grunt.registerTask('travis', ['cssmin', 'copy:main', 'jshint']);
   grunt.registerTask('jscopy', 'copy');
   grunt.registerTask('release', ['clean:build', 'cssmin', 'copy:main', 'jshint', 'shell', 'copy:iosBuild', 'clean:iosBuild']);
