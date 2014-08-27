@@ -261,6 +261,15 @@ p.thread-details-body, div.quotetitle p {
 	margin-top: 0 !important;
 }
 
-li.accordion-item a.item-link.item-content {
-	/*margin-bottom: -15px;*/
+div.preloader-indicator-overlay{
+	visibility: visible;
+	background: rgba(0,0,0,.6);
+	opacity: 1;
+}
+
+div.preloader-indicator-modal
+{
+	padding: 25px;
+	margin-left: -40px;
+	margin-top: -40px;
 }

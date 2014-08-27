@@ -22,8 +22,8 @@ function(Backbone,
         this.model.setBookMarkStatus();
 
         if(this.model.get('isBookmarked')){
-          $('.bookmark').removeClass('fa-bookmark-o');
-          $('.bookmark').addClass('fa-bookmark');
+          $('.bookmark').removeClass('bgg-bookmark-empty');
+          $('.bookmark').addClass('bgg-bookmark-fill');
         }
       },
       render: function(){
@@ -99,9 +99,9 @@ function(Backbone,
       toggleBookmark: function(){
         var bookmarks;
 
-        if($('.bookmark').hasClass('fa-bookmark-o')){
-          $('.bookmark').removeClass('fa-bookmark-o');
-          $('.bookmark').addClass('fa-bookmark');
+        if($('.bookmark').hasClass('bgg-bookmark-empty')){
+          $('.bookmark').removeClass('bgg-bookmark-empty');
+          $('.bookmark').addClass('bgg-bookmark-fill');
 
           bookmarks = window.localStorage.bookmarks ? JSON.parse(window.localStorage.bookmarks) : [];
           bookmarks.push({ id: this.model.get('id'), title: this.model.get('title') });
@@ -110,8 +110,8 @@ function(Backbone,
           return;
         }
         else{
-          $('.bookmark').removeClass('fa-bookmark');
-          $('.bookmark').addClass('fa-bookmark-o');
+          $('.bookmark').removeClass('bgg-bookmark-fill');
+          $('.bookmark').addClass('bgg-bookmark-empty');
 
           bookmarks = window.localStorage.bookmarks ? JSON.parse(window.localStorage.bookmarks) : [];
 

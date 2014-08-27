@@ -7,10 +7,8 @@
           <li><div class="item-divider">Game Title</div></li>
           <li>
             <div class="item-content">
-              <!-- <div class="item-media"><i class="icon icon-f7"></i></div> -->
               <div class="item-inner">
                 <div class="item-title">{{ title }}</div>
-                <!-- <div class="item-after">CEO</div> -->
               </div>
             </div>
           </li>
@@ -199,7 +197,7 @@
             {{#each honor }}
             <li>
               <div class="item-content">
-                <div class="item-media"><i class="fa fa-trophy"></i></div>
+                <div class="item-media"><i class="bgg-icon bgg-trophy"></i></div>
                 <div class="item-inner">
                   <div class="item-title">{{ this }}</div>
                   <!-- <div class="item-after">CEO</div> -->
@@ -275,7 +273,7 @@
             {{#each expansions }}
             <li>
               <div class="item-content">
-                <div class="item-media"><i class="fa fa-share-alt"></i></div>
+                <div class="item-media"><i class="bgg-icon bgg-expansion"></i></div>
                 <div class="item-inner">
                   <div class="item-title">{{ this.title }}</div>
                   <!-- <div class="item-after">CEO</div> -->
@@ -309,10 +307,10 @@
                   <div class="item-rating">
                     {{#ifCond this.rating '!==' "N/A" }}
                       {{#times this.rating }}
-                        <i class="fa fa-linefix fa-star fa-sm"></i>
+                        <i class="bgg-icon bgg-icon-linefix bgg-star-fill bgg-icon-sm"></i>
                       {{/times}}
                       {{#ifRound this.rating }}
-                        <i class="fa fa-linefix fa-star-half-o fa-sm"></i>
+                        <i class="bgg-icon bgg-icon-linefix bgg-star-half bgg-icon-sm"></i>
                       {{/ifRound}}
                     {{/ifCond}}
                   </div>
