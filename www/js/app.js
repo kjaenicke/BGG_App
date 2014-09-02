@@ -17,7 +17,8 @@ define(['Backbone',
       // Add view
       var mainView = theApp.addView('.view-main', {
         // Because we want to use dynamic navbar, we need to enable it for this view:
-        dynamicNavbar: true
+        dynamicNavbar: true,
+        domCache: true
       });
 
       // Option 1. Using one 'pageInit' event handler for all pages (recommended way):
