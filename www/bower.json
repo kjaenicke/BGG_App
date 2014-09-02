@@ -4,7 +4,6 @@
   "authors"       : ["Keenan Jaenicke", "Shawn Hoffman"],
   "dependencies"  : {
     "requirejs"       : "2.1.11",
-    /*"requirejs-text"  : "2.0.12",*/
     "backbone"        : "1.1.2",
     "marionette"      : "1.8.6",
     "jquery"          : "2.1.1",
