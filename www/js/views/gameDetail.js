@@ -34,7 +34,6 @@ function(Backbone,
         this.fetchForums();
 
         if ($('.toolbar').length === 0){
-          console.log('appending');
           $('.view-main').append(toolbar());
         }
 

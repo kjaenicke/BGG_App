@@ -62,7 +62,6 @@ define(['Backbone',
         });
       },
       showFeaturedGame: function(){
-        console.log('featured');
         var self = this;
         //page load has to be here or it won't render correctly
         theApp.views[0].loadPage("html/game.html");
