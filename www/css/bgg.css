@@ -273,3 +273,7 @@ div.preloader-indicator-modal
 	margin-left: -40px;
 	margin-top: -40px;
 }
+
+.modal-title {
+	text-transform: none;
+}

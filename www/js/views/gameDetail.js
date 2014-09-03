@@ -18,7 +18,7 @@ function(Backbone,
     var GameDetailView = Backbone.Marionette.ItemView.extend({
       initialize: function(options){
         this.model = this.options.model;
-        _.bindAll(this, 'fetchImages', 'toggleBookmark', 'shareGame');
+        _.bindAll(this, 'fetchImages', 'toggleBookmark', 'shareGame', 'fetchForums');
         this.model.setBookMarkStatus();
 
         if(this.model.get('isBookmarked')){

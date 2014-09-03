@@ -33,75 +33,54 @@ define(['Backbone',
       },
       showTop100Games: function(){
         var self = this;
-        theApp.views[0].loadPage("top-100.html");
+        theApp.views[0].loadPage("html/top-100.html");
 
         showNewIndicator();
-        if(!self.topGamesCollection){
-          self.topGamesCollection = new TopGamesCollection();
-          self.topGamesCollection.fetch({
-              success: function(){
-                self.topGamesView = new TopGamesView({ collection: self.topGamesCollection });
-                self.topGamesView.render();
-                $('.page-top100 .list-block').html(self.topGamesView.el);
-                hideNewIndicator();
-            }
-          });
-        }
-        else {
-          theApp.views[0].loadPage("top-100.html");
-          $('.page-top100 .list-block').html(self.topGamesView.el);
-          hideNewIndicator();
-        }
+        self.topGamesCollection = new TopGamesCollection();
+        self.topGamesCollection.fetch({
+            success: function(){
+              self.topGamesView = new TopGamesView({ collection: self.topGamesCollection });
+              self.topGamesView.render();
+              $('.page-top100 .list-block').html(self.topGamesView.el);
+              hideNewIndicator();
+          }
+        });
       },
       showHotBoardGames: function(){
         var self = this;
-        theApp.views[0].loadPage("hot-games.html");
+        theApp.views[0].loadPage("html/hot-games.html");
 
         showNewIndicator();
-        if(!self.hotGamesCollection){
-          self.hotGamesCollection = new HotGamesCollection();
-          self.hotGamesCollection.fetch({
-              success: function(){
-                self.hotGamesView = new HotGamesView({ collection: self.hotGamesCollection });
-                self.hotGamesView.render();
-                $('.page-hot-games .list-block').html(self.hotGamesView.el);
-                hideNewIndicator();
-            }
-          });
-        }
-        else {
-          theApp.views[0].loadPage("hot-games.html");
-          $('.page-hot-games .list-block').html(self.hotGamesView.el);
-          hideNewIndicator();
-        }
+        self.hotGamesCollection = new HotGamesCollection();
+        self.hotGamesCollection.fetch({
+            success: function(){
+              self.hotGamesView = new HotGamesView({ collection: self.hotGamesCollection });
+              self.hotGamesView.render();
+              $('.page-hot-games .list-block').html(self.hotGamesView.el);
+              hideNewIndicator();
+          }
+        });
       },
       showFeaturedGame: function(){
+        console.log('featured');
         var self = this;
         //page load has to be here or it won't render correctly
-        theApp.views[0].loadPage("game.html");
+        theApp.views[0].loadPage("html/game.html");
 
-        // see if we've already fetch the deets on this Bee before we refetch it and waste time
-        if(!self.gameModel){
-          showNewIndicator();
-          self.gameModel = new FeaturedGameModel();
-            self.gameModel.fetch({ success: function(){
-              //create html for details view
-              self.detailedGameView = new DetailedGameView({ model: self.gameModel });
-              self.detailedGameView.render();
-
-              $('.game-page').html(self.detailedGameView.el);
-              hideNewIndicator();
-            }
-          });
-        }
-        else {
+        showNewIndicator();
+        self.gameModel = new FeaturedGameModel();
+          self.gameModel.fetch({ success: function(){
             //create html for details view
-            theApp.views[0].loadPage("game.html");
+            self.detailedGameView = new DetailedGameView({ model: self.gameModel });
+            self.detailedGameView.render();
+
             $('.game-page').html(self.detailedGameView.el);
+            hideNewIndicator();
           }
+        });
       },
       showDevFeedback: function(){
-        window.open('mailto:shawn.p.hoffman@gmail.com?subject=BGG%20Dev%20Feedback', '_system');
+        window.open('mailto:shawn.p.hoffman@gmail.com?subject=iBGG%20Feedback', '_system');
       }
     });
 

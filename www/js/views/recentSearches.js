@@ -32,13 +32,15 @@ define(['Backbone', 'Marionette', 'js/models/recentSearches', 'js/views/game', '
         onRender: function(){
           var self = this;
           $('#clear-recent-searches').on('click', function(){
-            window.localStorage.removeItem('recentSearches');
-            self.recentSearchesModel = new RecentSearchesModel();
-            self.recentSearchesModel.fetch({
-              success: function(data){
-                  self.collection = new Backbone.Collection(data);
-                  self.render();
-              }
+            theApp.confirm('Are you sure you want to clear your recent searches?', function(){
+              window.localStorage.removeItem('recentSearches');
+              self.recentSearchesModel = new RecentSearchesModel();
+              self.recentSearchesModel.fetch({
+                success: function(data){
+                    self.collection = new Backbone.Collection(data);
+                    self.render();
+                }
+              });
             });
           });
         }

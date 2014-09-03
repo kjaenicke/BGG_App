@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <html>
-<head  class="with-statusbar-overlay">
+<head class="with-statusbar-overlay">
 
 <meta charset="utf-8">
 <meta name="format-detection" content="telephone=no" />
@@ -16,11 +16,11 @@
 <!-- END CSS -->
 
 <!-- CORDOVA SCRIPTS (UNCOMMENT FOR RELEASE) -->
-<!-- <script src="cordova.js"></script> -->
-<!-- <script src="cordova_plugins.js"></script> -->
+<script src="cordova.js"></script>
+<script src="cordova_plugins.js"></script>
 <!-- END CORDOVA SCRIPTS -->
 
-<!-- <script type="text/javascript" data-main="req" src="bower_dist/requirejs/require.js"></script> -->
+  <!-- // <script type="text/javascript" data-main="req" src="bower_dist/requirejs/require.js"></script> -->
   <script type="text/javascript" src="bower_dist/requirejs/require.js"></script>
   <script>
     require.config({
@@ -33,8 +33,6 @@
 
 </head>
 <body>
-  <!-- Status bar overlay for full screen mode (PhoneGap) -->
-  <!-- <div class="statusbar-overlay"></div> -->
   <!-- Panels overlay-->
   <div class="panel-overlay"></div>
   <!-- Left panel with reveal effect-->
@@ -42,7 +40,7 @@
     <!-- <div class="content-block-title">Actions</div> -->
       <div class="list-block">
         <ul>
-          <li><a href="bookmarks.html" id="panelBookmarks" class=" close-panel item-link">
+          <li><a href="html/bookmarks.html" id="panelBookmarks" class=" close-panel item-link">
               <div class="item-content">
                   <div class="item-media"><i class="bgg-icon bgg-bookmark-fill bgg-icon-lg bgg-icon-fw"></i></div>
                   <div class="item-inner">
@@ -50,7 +48,7 @@
                   </div>
               </div></a>
           </li>
-          <li><a href="recent-searches.html" id="recentSearches" class=" close-panel item-link">
+          <li><a href="html/recent-searches.html" id="recentSearches" class=" close-panel item-link">
               <div class="item-content">
                   <div class="item-media"><i class="bgg-icon bgg-history bgg-icon-lg bgg-icon-fw"></i></div>
                   <div class="item-inner">
@@ -58,7 +56,7 @@
                   </div>
               </div></a>
           </li>
-          <li><a href="about.html" id="legal" class=" close-panel item-link">
+          <li><a href="html/about.html" id="legal" class=" close-panel item-link">
               <div class="item-content">
                   <div class="item-media"><i class="bgg-icon bgg-question bgg-icon-lg bgg-icon-fw"></i></div>
                   <div class="item-inner">
@@ -69,9 +67,10 @@
         </ul>
       </div>
   </div>
+
   <!-- Views -->
   <div class="views">
-    <!-- Your main view, should have "view-main" class -->
+    <!-- Main View -->
     <div class="view view-main navbar-fixed">
       <!-- Top Navbar-->
       <div class="navbar">
@@ -81,12 +80,11 @@
           </div>
           <div class="center sliding">The Geek Reference</div>
           <div class="right">
-            <a href="search.html" class="link icon-only"><i class="bgg-icon bgg-search bgg-icon-lg "></i></a>
+            <a href="html/search.html" class="link icon-only"><i class="bgg-icon bgg-search bgg-icon-lg "></i></a>
           </div>
         </div>
       </div>
       <div class="pages navbar-through">
-        <!-- Page, "data-page" contains page name -->
         <div data-page="index" class="page main-page">
           <!-- Scrollable page content -->
           <div class="page-content page-home" style="background-color: lightgray;">
@@ -95,10 +93,11 @@
       </div>
     </div>
   </div>
+
   <!-- LOADING MODAL -->
   <div class="modal modal-no-buttons modal-in" style="margin-top: -47px;">
     <div class="modal-inner">
-      <div class="modal-title">Loading...</div>
+      <div class="modal-title">LOADING...</div>
       <div class="modal-text">
         <i class="bgg-icon bgg-loading bgg-icon-spin bgg-icon-3x"></i>
       </div>

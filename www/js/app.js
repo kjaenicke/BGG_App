@@ -14,39 +14,34 @@ define(['Backbone',
 
       document.addEventListener('deviceready', this.onDeviceReady, false);
 
-      // Add view
+      // Add main view
       var mainView = theApp.addView('.view-main', {
-        // Because we want to use dynamic navbar, we need to enable it for this view:
         dynamicNavbar: true,
         domCache: true
       });
 
-      // Option 1. Using one 'pageInit' event handler for all pages (recommended way):
+      // F7 HANDLER
       $$(document).on('pageInit', function (e) {
-        // Get page data from event data
         var page = e.detail.page;
       });
 
+      // PREVENT MAIN PAGE SCROLL WHEN PANEL IS OPEN
       $('.panel').on('touchmove', function (f) {
         f.preventDefault();
       });
-
       $('.main-page').on('touchmove', function (f) {
         f.preventDefault();
-      });
-      //HOME SCREEN
-      $$(document).on('pageAfterAnimation', '.page[data-page="index"]', function (e) {
-        $('.main-page').on('touchmove', function (f) {
-          f.preventDefault();
-        });
-        $('.panel').on('touchmove', function (f) {
-          f.preventDefault();
-        });
       });
 
       //GAMES
       $$(document).on('pageBeforeRemove', '.page[data-page="game"]', function(e) {
         $('.toolbar').remove();
+        theApp.cache = [];
+      });
+      $$(document).on('pageBeforeAnimation', '.page[data-page="game"]', function(e) {
+        if ($('.toolbar').length){
+          $('.toolbar').show();
+        }
       });
 
       //RECENT SEARCHES
@@ -77,19 +72,12 @@ define(['Backbone',
         });
       });
 
-      $$(document).on('pageAfterAnimation', '.page[data-page="index"]', function(e){
-        //create main layout
-        var layout = new MainLayout();
-        layout.render();
-        $('.page-home').html(layout.el);
-      });
-
-      //create main layout
+      //CREATE MAIN LAYOUT
       var layout = new MainLayout();
       layout.render();
       $('.page-home').html(layout.el);
 
-      //create search layout
+      //CREATE SEARCH LAYOUT
       var searchLayout = new SearchLayout();
       searchLayout.render();
       $('.page-content .search_container').append(layout.el);

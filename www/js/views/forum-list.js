@@ -20,7 +20,7 @@ define(['Backbone', 'Marionette', 'hbs!templates/forum', 'js/models/threadCollec
       showForum: function(){
         var self = this;
         //page load has to be here or it won't render correctly
-        theApp.views[0].loadPage("forum.html");
+        theApp.views[0].loadPage("html/forum.html");
 
         // see if we've already fetch the deets on this Bee before we refetch it and waste time
         showNewIndicator();
