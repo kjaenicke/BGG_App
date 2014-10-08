@@ -57,7 +57,7 @@ div[class*="col-"] {
 	text-align: center;
 	color: #000;
 	/*border: 1px solid #DDD;*/
-	padding: 5px;
+	/*padding: 5px;*/
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
@@ -179,7 +179,7 @@ li.accordion-item.accordion-item-expanded {
 	-moz-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-	padding: 0 10px;
+	/*padding: 0 10px;*/
 	margin: 0;
 	position: relative;
 	overflow: hidden;
@@ -204,18 +204,30 @@ li.accordion-item.accordion-item-expanded {
 .square div{
 	position: absolute;
 	bottom: 5px;
+	width: 100%;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+img.featureImage {
+	width: 80%;
 }
 
 /*iPhone <5*/
 @media only screen
-	and (min-device-width : 320px)
-	and (max-device-width : 480px)
+	and (min-device-height : 320px)
+	and (max-device-height : 480px)
 	and (orientation : portrait) {
 		.square {
 				height: 40vw;
 		}
 		.min-top-margin {
 			margin-top: 10px;
+		}
+		img.featureImage {
+			width: 70%;
 		}
 }
 

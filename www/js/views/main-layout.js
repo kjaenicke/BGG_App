@@ -31,6 +31,16 @@ define(['Backbone',
         'click @ui.featuredGameIcon'  : 'showFeaturedGame',
         'click @ui.devFeedback'       : 'showDevFeedback'
       },
+      onRender: function(){
+        $.ajax({
+          dataType: "json",
+          global: false,
+          url: 'http://bgg-middleware.azurewebsites.net/featured/image',
+          success: function(data){
+            $('#featuredImage').append('<img src="' + data.thumbURL + '" class="featureImage" />').removeClass('bgg-star-fill');
+          }
+        });
+      },
       showTop100Games: function(){
         var self = this;
         theApp.views[0].loadPage("html/top-100.html");
