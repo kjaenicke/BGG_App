@@ -53,11 +53,8 @@
 }
 
 div[class*="col-"] {
-	background: #f7f7f8;
 	text-align: center;
 	color: #000;
-	/*border: 1px solid #DDD;*/
-	/*padding: 5px;*/
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
@@ -163,12 +160,12 @@ li.accordion-item.accordion-item-expanded {
 }
 
 .square {
+	background: #f7f7f8;
 	border-radius: 10px;
 	font-size: 1.2em;
 	word-wrap: break-word;
 
 	border: 1px solid #007aff;
-	color: #007aff;
 	text-decoration: none;
 	text-align: center;
 	display: block;
@@ -179,7 +176,6 @@ li.accordion-item.accordion-item-expanded {
 	-moz-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-	/*padding: 0 10px;*/
 	margin: 0;
 	position: relative;
 	overflow: hidden;
@@ -192,7 +188,7 @@ li.accordion-item.accordion-item-expanded {
 }
 
 .square .bgg-icon {
-	font-size: 4em;
+	font-size: 5em;
 	position: relative;
 	top: 5px;
 }
@@ -215,6 +211,13 @@ img.featureImage {
 	width: 80%;
 }
 
+.rect {
+	height:24vw!important;
+	margin-bottom: 2vw;
+	background: #f7f7f8;
+	font-size: 1.0em;
+}
+
 /*iPhone <5*/
 @media only screen
 	and (min-device-height : 320px)
@@ -229,13 +232,19 @@ img.featureImage {
 		img.featureImage {
 			width: 70%;
 		}
+		.rect {
+			height:19vw!important;
+		}
+		.bgg-coin, .bgg-phone {
+			font-size: 2.5em !important;
+		}
 }
 
 /* iPhone5+ */
 @media
 	only screen and (min-device-height: 481px){
 		.square {
-				height: 50vw !important;
+				height: 50vw;
 		}
 		.min-top-margin {
 			margin-top: 20px;
@@ -261,6 +270,9 @@ img.featureImage {
 }
 .square:active .bgg-fire {
 	color: #e67e22;
+}
+.square:active .bgg-coin {
+	color: #27ae60;
 }
 
 .thread-item-detail div.content-block {

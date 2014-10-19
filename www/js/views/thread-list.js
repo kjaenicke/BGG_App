@@ -73,7 +73,7 @@ function(Backbone,
                   $('.thread-item-detail').html(self.threadDetailListView.el);
                   $('.thread-item-detail').show();
                   hideNewIndicator();
-                  $('.accordion-item').first().addClass('accordion-item-expanded');
+                  // $('.accordion-item').first().addClass('accordion-item-expanded');
                 }
               });
 

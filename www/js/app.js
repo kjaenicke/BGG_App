@@ -17,7 +17,8 @@ define(['Backbone',
       // Add main view
       var mainView = theApp.addView('.view-main', {
         dynamicNavbar: true,
-        domCache: true
+        domCache: true,
+        fastClicksDistanceThreshold: 2
       });
 
       // F7 HANDLER

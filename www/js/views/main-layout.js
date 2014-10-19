@@ -23,13 +23,15 @@ define(['Backbone',
         top100Icon        : '.top100-icon',
         hotBoardGamesIcon : '.hotboardgames-icon',
         featuredGameIcon  : '.featuredgame-icon',
-        devFeedback       : '.devFeedback'
+        devFeedback       : '.devFeedback',
+        donateIcon        : '.donate'
       },
       events: {
         'click @ui.top100Icon'        : 'showTop100Games',
         'click @ui.hotBoardGamesIcon' : 'showHotBoardGames',
         'click @ui.featuredGameIcon'  : 'showFeaturedGame',
-        'click @ui.devFeedback'       : 'showDevFeedback'
+        'click @ui.devFeedback'       : 'showDevFeedback',
+        'click @ui.donateIcon'        : 'showDonate'
       },
       onRender: function(){
         $.ajax({
@@ -90,6 +92,9 @@ define(['Backbone',
       },
       showDevFeedback: function(){
         window.open('mailto:shawn.p.hoffman@gmail.com?subject=iBGG%20Feedback', '_system');
+      },
+      showDonate: function(){
+        window.open('http://www.diversiondev.com/Donate/', '_system');
       }
     });
 
