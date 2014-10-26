@@ -5,7 +5,7 @@
       "date": "2014-10-26T11:00:00.000Z",
       "title": "Test Announcement",
       "body": "This is a test announcement",
-      "type": ["Active"],
+      "type": ["Active"]
     }
   ]
 }
