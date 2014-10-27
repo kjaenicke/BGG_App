@@ -1,20 +1,17 @@
-{
-  "lastUpdated": "2014-10-26T11:00:00.000Z",
-  "announcements":[
-    {
-      "date": "2014-10-26T11:00:00.000Z",
-      "title": "Test Announcement",
-      "body": "This is a test announcement",
-      "type": [],
-      "hidden": true,
-      "order":1
-    },
-    {
-      "date": "2014-10-26T19:54:00.000Z",
-      "title": "iBGG 2.1 in Development!",
-      "body": "We're proud to announce that we're working on some really great features for iBGG. We've had a lot of requests for the ability to login and manage your plays on BGG so that is something we're trying to work through. Until then, we're hoping to release features including; iOS app equivalent listings for your favorite board game as well as additional functionality to the game details pages. We're excited to release so keep your eyes open.",
-      "type": ["Active"],
-      "order": 2
-    }
-  ]
-}
+[
+  {
+    "date": "2014-10-26T11:00:00.000Z",
+    "title": "Test Announcement",
+    "body": "This is a test announcement",
+    "type": [],
+    "hidden": true,
+    "order":1
+  },
+  {
+    "date": "2014-10-26T19:54:00.000Z",
+    "title": "iBGG 2.1 in Development!",
+    "body": "We're proud to announce that we're working on some really great features for iBGG. We've had a lot of requests for the ability to login and manage your plays on BGG so that is something we're trying to work through. Until then, we're hoping to release features including; iOS app equivalent listings for your favorite board game as well as additional functionality to the game details pages. We're excited to release so keep your eyes open.",
+    "type": ["Active"],
+    "order": 2
+  }
+]
