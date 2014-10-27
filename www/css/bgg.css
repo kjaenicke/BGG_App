@@ -309,3 +309,11 @@ div.preloader-indicator-modal
 .modal-title {
 	text-transform: none;
 }
+
+#announcements .item-subtitle {
+	color: #AAA;
+}
+.bg-green {
+	background-color: #4CD964;
+	color: white;
+}

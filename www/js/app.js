@@ -4,10 +4,12 @@ define(['Backbone',
         'js/views/main-layout',
         'js/views/search-layout',
         'js/views/recentSearches',
+        'js/views/announcements',
         'js/models/recentSearches',
         'js/models/bookmarksCollection',
+        'js/models/announcementsCollection',
         'js/views/bookmarks'],
-  function(Backbone, Marionette, GlobalOverride, MainLayout, SearchLayout, RecentSearchView, RecentSearchesModel, BookmarksCollection, BookmarksView){
+  function(Backbone, Marionette, GlobalOverride, MainLayout, SearchLayout, RecentSearchView, AnnouncementsView, RecentSearchesModel, BookmarksCollection, AnnouncementsCollection, BookmarksView){
 
   var app = {
     Start: function(){
@@ -43,6 +45,22 @@ define(['Backbone',
         if ($('.toolbar').length){
           $('.toolbar').show();
         }
+      });
+
+      //ANNOUNCEMENTS
+      $$(document).on('pageAfterAnimation', '.page[data-page="announcements"]', function (e) {
+        var announcementsCollection = new AnnouncementsCollection();
+        announcementsCollection.fetch({
+          success: function(data){
+            var announcementsView = new AnnouncementsView({
+              collection: new Backbone.Collection(_.filter(data.models, function(annc){
+                return annc.get('hidden') !== true;
+              }))
+            });
+            announcementsView.render();
+            $('#announcements').html(announcementsView.el);
+          }
+        });
       });
 
       //RECENT SEARCHES
