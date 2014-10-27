@@ -1,6 +1,6 @@
 define(['Backbone'], function(Backbone){
   var AnnouncementsCollection = Backbone.Collection.extend({
-      baseUrl: 'http://bgg-middleware-staging.azurewebsites.net/announcements',
+      baseUrl: 'http://bgg-middleware.azurewebsites.net/announcements',
       url: function(){
         return this.baseUrl;
       },
