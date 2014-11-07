@@ -2,8 +2,9 @@ define(['Backbone',
         'Marionette',
         'hbs!templates/game-simple',
         'js/models/game',
-        'js/views/gameDetail'],
-  function(Backbone, Marionette, template, GameModel, DetailedGameView){
+        'js/views/gameDetail',
+        'js/AuthToken'],
+  function(Backbone, Marionette, template, GameModel, DetailedGameView, auth){
 
   var GameView = Backbone.Marionette.ItemView.extend({
       tagName: 'li',
@@ -28,14 +29,18 @@ define(['Backbone',
 
         showNewIndicator();
         self.gameModel = new GameModel({ id: self.model.get('id'), details: true });
-          self.gameModel.fetch({ success: function(){
-            //create html for details view
-            self.detailedGameView = new DetailedGameView({ model: self.gameModel });
-            self.detailedGameView.render();
+          self.gameModel.fetch({
+            beforeSend: function(xhr){
+              xhr.setRequestHeader('auth-token', auth.token);
+            },
+            success: function(){
+              //create html for details view
+              self.detailedGameView = new DetailedGameView({ model: self.gameModel });
+              self.detailedGameView.render();
 
-            $('.game-page').html(self.detailedGameView.el);
-            hideNewIndicator();
-          }
+              $('.game-page').html(self.detailedGameView.el);
+              hideNewIndicator();
+            }
         });
       }
     });

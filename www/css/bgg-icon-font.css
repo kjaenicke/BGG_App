@@ -40,6 +40,10 @@
 	content: "\f11b";
 	color: #c0392b;
 }
+.bgg-videogame-blk:before {
+	content: "\f11b";
+	color: black;
+}
 .bgg-expansion:before, .bgg-boardgameexpansion:before {
 	content: "\f1e0";
 	color: #27ae60;

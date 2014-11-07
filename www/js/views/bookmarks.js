@@ -1,5 +1,5 @@
-define(['Backbone', 'Marionette', 'js/models/bookmarksCollection', 'js/views/game', 'hbs!templates/bookmark', 'hbs!templates/no-bookmarks', 'js/models/game', 'js/views/gameDetail'],
-  function(Backbone, Marionette, BookmarksModel, GameView, template, noBookmarksTemplate, GameModel, DetailedGameView){
+define(['Backbone', 'Marionette', 'js/models/bookmarksCollection', 'js/views/game', 'hbs!templates/bookmark', 'hbs!templates/no-bookmarks', 'js/models/game', 'js/views/gameDetail', 'js/AuthToken'],
+  function(Backbone, Marionette, BookmarksModel, GameView, template, noBookmarksTemplate, GameModel, DetailedGameView, auth){
 
     var BookmarkItem = Backbone.Marionette.ItemView.extend({
       tagName: 'li',
@@ -25,14 +25,18 @@ define(['Backbone', 'Marionette', 'js/models/bookmarksCollection', 'js/views/gam
 
         showNewIndicator();
         self.gameModel = new GameModel({ id: self.model.get('id'), details: true });
-          self.gameModel.fetch({ success: function(){
-            //create html for details view
-            self.detailedGameView = new DetailedGameView({ model: self.gameModel });
-            self.detailedGameView.render();
+          self.gameModel.fetch({
+            beforeSend: function(xhr){
+              xhr.setRequestHeader('auth-token', auth.token);
+            },
+            success: function(){
+              //create html for details view
+              self.detailedGameView = new DetailedGameView({ model: self.gameModel });
+              self.detailedGameView.render();
 
-            $('.game-page').html(self.detailedGameView.el);
-            hideNewIndicator();
-          }
+              $('.game-page').html(self.detailedGameView.el);
+              hideNewIndicator();
+            }
         });
       }
     });

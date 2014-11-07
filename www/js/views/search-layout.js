@@ -1,5 +1,5 @@
-define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameCollectionView', 'js/models/gameCollection'],
-  function(Backbone, Marionette, Template, GameCollectionView, GameCollection){
+define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameCollectionView', 'js/models/gameCollection', 'js/AuthToken'],
+  function(Backbone, Marionette, Template, GameCollectionView, GameCollection, auth){
 
     var SearchLayout = Backbone.Marionette.Layout.extend({
       template: Template(),
@@ -54,6 +54,9 @@ define(['Backbone', 'Marionette', 'hbs!templates/search-layout', 'js/views/gameC
 
           var gameCollection = new GameCollection([], { searchTerms: s });
           gameCollection.fetch({
+            beforeSend: function(xhr){
+              xhr.setRequestHeader('auth-token', auth.token);
+            },
             success: function(){
               //this is used when the game is loaded from the recent searches view
               $('#search_text').val(s);

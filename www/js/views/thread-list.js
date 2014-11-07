@@ -4,14 +4,16 @@ define(['Backbone',
         'hbs!templates/thread',
         'hbs!templates/thread-detail',
         'js/models/threadDetail',
-        'js/views/thread-detail'],
+        'js/views/thread-detail',
+        'js/AuthToken'],
 function(Backbone,
          Marionette,
          threadListTemplate,
          threadTemplate,
          threadDetailTemplate,
          ThreadDetailModel,
-         ThreadDetailListView){
+         ThreadDetailListView,
+         auth){
 
           var ThreadView = Backbone.Marionette.ItemView.extend({
             tagName: 'li',
@@ -65,6 +67,9 @@ function(Backbone,
               self.threadDetail = new ThreadDetailModel();
               self.threadDetail.threadId = thread.get('id');
               self.threadDetail.fetch({
+                beforeSend: function(xhr){
+                  xhr.setRequestHeader('auth-token', auth.token);
+                },
                 success: function(){
                   //create html for details view
                   self.threadDetailListView = new ThreadDetailListView({ model: self.threadDetail });

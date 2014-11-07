@@ -1,5 +1,5 @@
-define(['Backbone', 'Marionette', 'hbs!templates/forum', 'js/models/threadCollection', 'js/views/thread-list'],
-  function(Backbone, Marionette, forumTemplate, ThreadCollection, ThreadListView){
+define(['Backbone', 'Marionette', 'hbs!templates/forum', 'js/models/threadCollection', 'js/views/thread-list', 'js/AuthToken'],
+  function(Backbone, Marionette, forumTemplate, ThreadCollection, ThreadListView, auth){
 
     var ForumView = Backbone.Marionette.ItemView.extend({
       tagName: 'li',
@@ -27,6 +27,9 @@ define(['Backbone', 'Marionette', 'hbs!templates/forum', 'js/models/threadCollec
         self.threadCollection = new ThreadCollection();
         self.threadCollection.forumId = self.model.get('id');
         self.threadCollection.fetch({
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('auth-token', auth.token);
+          },
           success: function(){
             //create html for details view
             self.threadListView = new ThreadListView({ collection: self.threadCollection });

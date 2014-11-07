@@ -5,7 +5,8 @@ define(['Backbone',
         'hbs!templates/game-details',
         'hbs!templates/game-toolbar',
         'js/models/photoCollection',
-        'js/models/forumCollection'],
+        'js/models/forumCollection',
+        'js/AuthToken'],
 function(Backbone,
         Marionette,
         GameView,
@@ -13,7 +14,8 @@ function(Backbone,
         template,
         toolbar,
         PhotoCollection,
-        ForumCollection){
+        ForumCollection,
+        auth){
 
     var GameDetailView = Backbone.Marionette.ItemView.extend({
       initialize: function(options){
@@ -55,31 +57,35 @@ function(Backbone,
         var self = this;
 
         self.photoCollection = new PhotoCollection({ id: self.model.get('id') });
-        self.photoCollection.fetch({ success: function(){
+        self.photoCollection.fetch({
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('auth-token', auth.token);
+          },
+          success: function(){
+            if(self.photoCollection.models.length > 0){
+              var photoBrowserPhotos = [];
 
-          if(self.photoCollection.models.length > 0){
-            var photoBrowserPhotos = [];
+              for(var i = 0; i < self.photoCollection.models.length; i++){
+                photoBrowserPhotos.push(self.photoCollection.models[i].get('url').replace('_t.jpg', '_md.jpg'));
+              }
 
-            for(var i = 0; i < self.photoCollection.models.length; i++){
-              photoBrowserPhotos.push(self.photoCollection.models[i].get('url').replace('_t.jpg', '_md.jpg'));
+              self.photoBrowserStandalone = null;
+              self.photoBrowserStandalone = theApp.photoBrowser({
+                  photos: photoBrowserPhotos
+              });
+
+              $('.photoGallery').on('click', function(){
+                self.photoBrowserStandalone.open();
+              });
+
+              $('.photoGallery').removeClass('muted');
             }
-
-            self.photoBrowserStandalone = null;
-            self.photoBrowserStandalone = theApp.photoBrowser({
-                photos: photoBrowserPhotos
-            });
-
-            $('.photoGallery').on('click', function(){
-              self.photoBrowserStandalone.open();
-            });
-
-            $('.photoGallery').removeClass('muted');
+            else {
+              $('.photoGallery span').html('No Images Found');
+              $('.photoGallery').removeClass('muted');
+            }
           }
-          else {
-            $('.photoGallery span').html('No Images Found');
-            $('.photoGallery').removeClass('muted');
-          }
-        }});
+        });
       },
       fetchForums: function(){
         var self = this;
@@ -87,6 +93,9 @@ function(Backbone,
           var forumCollection = new ForumCollection();
           forumCollection.gameId = self.model.get('id');
           forumCollection.fetch({
+            beforeSend: function(xhr){
+              xhr.setRequestHeader('auth-token', auth.token);
+            },
             success: function(){
               var forumListView = new ForumList({ collection: forumCollection});
               forumListView.render();
@@ -125,8 +134,6 @@ function(Backbone,
         }
       },
       shareGame: function(){
-        console.log('Share Game');
-
         var self = this;
         theApp.actions(
         [
@@ -144,8 +151,6 @@ function(Backbone,
               bold: true
           }]
         ]);
-
-        console.log('End Share Game');
       }
     });
 

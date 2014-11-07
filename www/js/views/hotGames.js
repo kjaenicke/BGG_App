@@ -4,14 +4,16 @@ define(['Backbone',
         'hbs!templates/hotGame',
         'hbs!templates/no-bookmarks',
         'js/models/game',
-        'js/views/gameDetail'],
+        'js/views/gameDetail',
+        'js/AuthToken'],
 function(Backbone,
          Marionette,
          GameView,
          template,
          noBookmarksTemplate,
          GameModel,
-         DetailedGameView){
+         DetailedGameView,
+         auth){
 
     var HotGamesView = Backbone.Marionette.ItemView.extend({
       tagName: 'li',
@@ -37,7 +39,11 @@ function(Backbone,
 
         showNewIndicator();
         self.gameModel = new GameModel({ id: self.model.get('id'), details: true });
-          self.gameModel.fetch({ success: function(){
+        self.gameModel.fetch({
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('auth-token', auth.token);
+          },
+          success: function(){
             //create html for details view
             self.detailedGameView = new DetailedGameView({ model: self.gameModel });
             self.detailedGameView.render();

@@ -6,7 +6,8 @@ define(['Backbone',
         'js/models/featuredGameModel',
         'js/views/top100Games',
         'js/views/hotGames',
-        'js/views/gameDetail'],
+        'js/views/gameDetail',
+        'js/AuthToken'],
   function(Backbone,
            Marionette,
            Template,
@@ -15,7 +16,8 @@ define(['Backbone',
            FeaturedGameModel,
            TopGamesView,
            HotGamesView,
-           DetailedGameView){
+           DetailedGameView,
+           auth){
 
     var MainLayout = Backbone.Marionette.Layout.extend({
       template: Template(),
@@ -37,7 +39,10 @@ define(['Backbone',
         $.ajax({
           dataType: "json",
           global: false,
-          url: 'http://bgg-middleware.azurewebsites.net/featured/image',
+          url: 'http://bgg-middleware-stage.azurewebsites.net/featured/image',
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('auth-token', auth.token);
+          },
           success: function(data){
             $('#featuredImage').append('<img src="' + data.thumbURL + '" class="featureImage" />').removeClass('bgg-star-fill');
           }
@@ -50,11 +55,14 @@ define(['Backbone',
         showNewIndicator();
         self.topGamesCollection = new TopGamesCollection();
         self.topGamesCollection.fetch({
-            success: function(){
-              self.topGamesView = new TopGamesView({ collection: self.topGamesCollection });
-              self.topGamesView.render();
-              $('.page-top100 .list-block').html(self.topGamesView.el);
-              hideNewIndicator();
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('auth-token', auth.token);
+          },
+          success: function(){
+            self.topGamesView = new TopGamesView({ collection: self.topGamesCollection });
+            self.topGamesView.render();
+            $('.page-top100 .list-block').html(self.topGamesView.el);
+            hideNewIndicator();
           }
         });
       },
@@ -65,11 +73,14 @@ define(['Backbone',
         showNewIndicator();
         self.hotGamesCollection = new HotGamesCollection();
         self.hotGamesCollection.fetch({
-            success: function(){
-              self.hotGamesView = new HotGamesView({ collection: self.hotGamesCollection });
-              self.hotGamesView.render();
-              $('.page-hot-games .list-block').html(self.hotGamesView.el);
-              hideNewIndicator();
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('auth-token', auth.token);
+          },
+          success: function(){
+            self.hotGamesView = new HotGamesView({ collection: self.hotGamesCollection });
+            self.hotGamesView.render();
+            $('.page-hot-games .list-block').html(self.hotGamesView.el);
+            hideNewIndicator();
           }
         });
       },
@@ -80,14 +91,18 @@ define(['Backbone',
 
         showNewIndicator();
         self.gameModel = new FeaturedGameModel();
-          self.gameModel.fetch({ success: function(){
-            //create html for details view
-            self.detailedGameView = new DetailedGameView({ model: self.gameModel });
-            self.detailedGameView.render();
+          self.gameModel.fetch({
+            beforeSend: function(xhr){
+              xhr.setRequestHeader('auth-token', auth.token);
+            },
+            success: function(){
+              //create html for details view
+              self.detailedGameView = new DetailedGameView({ model: self.gameModel });
+              self.detailedGameView.render();
 
-            $('.game-page').html(self.detailedGameView.el);
-            hideNewIndicator();
-          }
+              $('.game-page').html(self.detailedGameView.el);
+              hideNewIndicator();
+            }
         });
       },
       showDevFeedback: function(){

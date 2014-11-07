@@ -8,8 +8,25 @@ define(['Backbone',
         'js/models/recentSearches',
         'js/models/bookmarksCollection',
         'js/models/announcementsCollection',
-        'js/views/bookmarks'],
-  function(Backbone, Marionette, GlobalOverride, MainLayout, SearchLayout, RecentSearchView, AnnouncementsView, RecentSearchesModel, BookmarksCollection, AnnouncementsCollection, BookmarksView){
+        'js/models/appCollection',
+        'js/views/bookmarks',
+        'js/views/apps',
+        'js/AuthToken'],
+  function(
+    Backbone,
+    Marionette,
+    GlobalOverride,
+    MainLayout,
+    SearchLayout,
+    RecentSearchView,
+    AnnouncementsView,
+    RecentSearchesModel,
+    BookmarksCollection,
+    AnnouncementsCollection,
+    AppCollection,
+    BookmarksView,
+    AppView,
+    auth){
 
   var app = {
     Start: function(){
@@ -51,6 +68,9 @@ define(['Backbone',
       $$(document).on('pageAfterAnimation', '.page[data-page="announcements"]', function (e) {
         var announcementsCollection = new AnnouncementsCollection();
         announcementsCollection.fetch({
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('auth-token', auth.token);
+          },
           success: function(data){
             var announcementsView = new AnnouncementsView({
               collection: new Backbone.Collection(_.filter(data.models, function(annc){
@@ -87,6 +107,18 @@ define(['Backbone',
             var bookmarksView = new BookmarksView({ collection:  new Backbone.Collection(data) });
             bookmarksView.render();
             $('.search-box').html(bookmarksView.el);
+          }
+        });
+      });
+
+      //APPS LIST
+      $$(document).on('pageAfterAnimation', '.page[data-page="apps"]', function (e) {
+        var appCollection = new AppCollection();
+        appCollection.fetch({
+          success: function(data){
+            var appView = new AppView({ collection: new Backbone.Collection(data.models) });
+            appView.render();
+            $('#gameApps').html(appView.el);
           }
         });
       });
