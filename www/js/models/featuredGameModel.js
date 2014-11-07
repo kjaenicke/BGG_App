@@ -2,7 +2,7 @@ define(['Backbone'],
   function(Backbone){
     //MODEL FOR INDIVIDUAL GAME
     var FeatureGameModel = Backbone.Model.extend({
-      baseUrl: 'http://bgg-middleware-stage.azurewebsites.net/featured',
+      baseUrl: 'http://bgg-middleware.azurewebsites.net/featured',
       url: function(){
         return this.baseUrl;
       },

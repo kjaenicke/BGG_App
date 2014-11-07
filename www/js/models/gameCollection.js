@@ -4,7 +4,7 @@ define(['Backbone', 'js/models/game'],
     //COLLECTION OF GAMES
     var GameCollection = Backbone.Collection.extend({
       // model: GameModel,
-      baseUrl: 'http://bgg-middleware-stage.azurewebsites.net/search?searchTerms=',
+      baseUrl: 'http://bgg-middleware.azurewebsites.net/search?searchTerms=',
       initialize: function(models, options){
         //grab parameters for game collection
         if(options.searchTerms){

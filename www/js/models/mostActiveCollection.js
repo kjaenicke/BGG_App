@@ -3,7 +3,7 @@ define(['Backbone'],
 
     //COLLECTION OF MOST ACTIVE GAMES
     var MostActiveCollection = Backbone.Collection.extend({
-      baseUrl: 'http://bgg-middleware-stage.azurewebsites.net/mostActive?type=',
+      baseUrl: 'http://bgg-middleware.azurewebsites.net/mostActive?type=',
       initialize: function(models, options){
         //grab parameters for game collection
         if(options.type){

@@ -39,7 +39,7 @@ define(['Backbone',
         $.ajax({
           dataType: "json",
           global: false,
-          url: 'http://bgg-middleware-stage.azurewebsites.net/featured/image',
+          url: 'http://bgg-middleware.azurewebsites.net/featured/image',
           beforeSend: function(xhr){
             xhr.setRequestHeader('auth-token', auth.token);
           },

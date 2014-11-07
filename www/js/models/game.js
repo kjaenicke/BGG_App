@@ -2,7 +2,7 @@ define(['Backbone'],
   function(Backbone){
     //MODEL FOR INDIVIDUAL GAME
     GameModel = Backbone.Model.extend({
-      baseUrl: 'http://bgg-middleware-stage.azurewebsites.net/game',
+      baseUrl: 'http://bgg-middleware.azurewebsites.net/game',
       fetch: function(options){
         if(this.get('id')){
           if(this.get('details')){
