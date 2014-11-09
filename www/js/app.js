@@ -116,7 +116,9 @@ define(['Backbone',
         var appCollection = new AppCollection();
         appCollection.fetch({
           success: function(data){
-            var appView = new AppView({ collection: new Backbone.Collection(data.models) });
+            var appView = new AppView({ collection: new Backbone.Collection(_.filter(data.models, function(app){
+              return app.get('invalid') !== true;
+            })) });
             appView.render();
             $('#gameApps').html(appView.el);
           }
