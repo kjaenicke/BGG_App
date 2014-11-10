@@ -13,9 +13,15 @@
     "type": []
   },
   {
-    "date": "2014-10-26T19:54:00.000Z",
-    "title": "iBGG 1.2 in Development!",
-    "body": "We're proud to announce that we're working on some really great features for iBGG. We've had a lot of requests for the ability to login and manage your plays on BGG so that is something we're trying to work through. Until then, we're hoping to release features including; iOS app equivalent listings for your favorite board game as well as additional functionality to the game details pages. We're excited to release so keep your eyes open.",
+    "date": "2014-11-10T19:54:00.000Z",
+    "title": "iBGG 1.2 Released!",
+    "body": "We're proud to announce the release of some pretty neat feature including: in-app announcements, iOS App equivalents of your favorite boardgames, and TONS of performance improvements & bug fixes. Version 2.0 is hot on it's heals. As always, if you notice any issues, please let us know.",
+    "type": ["New"]
+  },
+  {
+    "date": "2014-11-10T19:55:00.000Z",
+    "title": "iBGG 2.0 in Development!",
+    "body": "We're proud to announce that we're working on some really great features for iBGG. We've had a lot of requests for the ability to login and manage your plays on BGG so that is something we're trying to work through and make sure we get right. This functionality it coming in the next major release so keep your eyes open for it.",
     "type": ["New"]
   }
 ]
