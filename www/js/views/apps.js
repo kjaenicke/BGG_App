@@ -12,7 +12,10 @@ define(['Backbone', 'Marionette', 'js/models/appCollection', 'hbs!templates/app'
         return this;
       },
       showApp: function(){
-        window.open(this.model.get('itunes'), '_system');
+        var self = this;
+        theApp.confirm('Are you sure you want to open this link?', function(){
+          window.open(self.model.get('itunes'), '_system');
+        }, null);
       }
     });
 
